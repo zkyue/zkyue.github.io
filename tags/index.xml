@@ -1,157 +1,67 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 大香蕉</title>
+    <title>Tags on 无尽光芒</title>
     <link>https://zkyue.github.io/tags/</link>
-    <description>Recent content in Tags on 大香蕉</description>
+    <description>Recent content in Tags on 无尽光芒</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 11 Apr 2019 14:26:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zkyue.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>development</title>
-      <link>https://zkyue.github.io/tags/development/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <title>中文</title>
+      <link>https://zkyue.github.io/tags/%E4%B8%AD%E6%96%87/</link>
+      <pubDate>Thu, 11 Apr 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://zkyue.github.io/tags/development/</guid>
+      <guid>https://zkyue.github.io/tags/%E4%B8%AD%E6%96%87/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>go</title>
-      <link>https://zkyue.github.io/tags/go/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <title>真言</title>
+      <link>https://zkyue.github.io/tags/%E7%9C%9F%E8%A8%80/</link>
+      <pubDate>Thu, 11 Apr 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://zkyue.github.io/tags/go/</guid>
+      <guid>https://zkyue.github.io/tags/%E7%9C%9F%E8%A8%80/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>golang</title>
-      <link>https://zkyue.github.io/tags/golang/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <title>体系</title>
+      <link>https://zkyue.github.io/tags/%E4%BD%93%E7%B3%BB/</link>
+      <pubDate>Wed, 10 Apr 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://zkyue.github.io/tags/golang/</guid>
+      <guid>https://zkyue.github.io/tags/%E4%BD%93%E7%B3%BB/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>hugo</title>
-      <link>https://zkyue.github.io/tags/hugo/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <title>日本語</title>
+      <link>https://zkyue.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
+      <pubDate>Wed, 10 Apr 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://zkyue.github.io/tags/hugo/</guid>
+      <guid>https://zkyue.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>templates</title>
-      <link>https://zkyue.github.io/tags/templates/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <title>English</title>
+      <link>https://zkyue.github.io/tags/english/</link>
+      <pubDate>Mon, 01 Apr 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://zkyue.github.io/tags/templates/</guid>
+      <guid>https://zkyue.github.io/tags/english/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>themes</title>
-      <link>https://zkyue.github.io/tags/themes/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <title>theme</title>
+      <link>https://zkyue.github.io/tags/theme/</link>
+      <pubDate>Mon, 01 Apr 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://zkyue.github.io/tags/themes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>katex</title>
-      <link>https://zkyue.github.io/tags/katex/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/katex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>math</title>
-      <link>https://zkyue.github.io/tags/math/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/math/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>typesetting</title>
-      <link>https://zkyue.github.io/tags/typesetting/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/typesetting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>earth</title>
-      <link>https://zkyue.github.io/tags/earth/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/earth/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>figure</title>
-      <link>https://zkyue.github.io/tags/figure/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/figure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>moon</title>
-      <link>https://zkyue.github.io/tags/moon/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/moon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nasa</title>
-      <link>https://zkyue.github.io/tags/nasa/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/nasa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://zkyue.github.io/tags/shortcodes/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/shortcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sun</title>
-      <link>https://zkyue.github.io/tags/sun/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/sun/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jekyll</title>
-      <link>https://zkyue.github.io/tags/jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/tags/jekyll/</guid>
+      <guid>https://zkyue.github.io/tags/theme/</guid>
       <description></description>
     </item>
     
