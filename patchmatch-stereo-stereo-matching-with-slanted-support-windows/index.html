@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://zkyue.github.io/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://zkyue.github.io/css/cayman.7dddf5f7210040b7ce2f2599583fe45d21832e816b5c7b3a0612e2f662cecab9.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title> | 大香蕉</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    大香蕉
+  </h1>
+  <h2 class="project-tagline">
+    大香蕉是一名优秀的程序员，并且没有女朋友
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/" class="btn">Blog</a>
+    
+      
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      
+      <a href="/about/" class="btn">About</a>
+    
+      
+      
+      
+      
+      <a href="/index.xml" class="btn">RSS</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1></h1>
+  <div>
+    
+    <strong>Publish date: </strong>0001-01-01
+  </div>
+  
+  
+  
+
+<h1 id="patchmatch-stereo-stereo-matching-with-slanted-support-windows">PatchMatch Stereo - Stereo Matching with Slanted Support Windows</h1>
+
+<p>这篇论文是我进入立体匹配领域后读的第一篇论文，读的十分痛苦，最后总算把问题解决了，写篇博客谈谈我的理解。</p>
+
+<p>PatchMatch Stereo 的主要创新点在于：</p>
+
+<ul>
+<li>为了解决 fronto-parallel bias， 引入了 slanted support window</li>
+<li>为了寻找 slanted support window， 使用了 PatchMatch 算法</li>
+</ul>
+
+<p>什么是 fronto-parallel bias ？在传统的局部窗口立体匹配过程中，参考图像的局部窗口在目标图像中每次位移一个像素同时计算 cost， 取 cost 最小的点为匹配点。然而这种计算只有当被摄物体的表面是和成像平面平行的时候才是成立的。如下图所示：<img src="https://github.com/zkyue/picturefloor/raw/master/%20fronto-parallel_bias.png" alt="20130620152541328" /></p>
+
+<p>当物体AB与像平面平行，它在左右相机中成像是一样大的，这时候用局部窗口在左右图像中去找匹配是可行的，然后当物体AB是斜着的时候，再用一个局部窗口去匹配 cost 最小的点就不一定准确了。</p>
+
+<p>回到 PatchMatch Stereo 这篇文章，在 x、y、d(视差）的三维空间中，作者去对每一个像素点拟合一个平面，来解决 fronto-parallel bias 问题。下图是作者画的二维示图，(a) 代表传统方法，由于视差每次只能移动一个像素，且局部像素点都在一个平面内，(a) 中只有 $P$ 点能够完美拟合，(b) 代表作者方法，视差是浮点数，可以解决出 $S$ 点以外的情况，按照作者的说法，$S$ 点也可以得到很好的近似。需要注意的是，如果每个图像点有自己的视差拟合平面，按理说 $S$ 点也应该能够完美拟合才对，但是下面的一个红色线段代表的单个像素的匹配窗口的大小，窗口中的每一个像素去计算代价是用的都是和中心点一样的平面参数，所以这个窗口不能弯曲，因为窗口内的其他点和中心点此时用的同一个平面法向量。理论上讲计算 cost 每个点用不同的平面参数能 handle 包括 $S$ 的所有情况，但这样会导致 PatchMatch 不收敛。</p>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/slanted_window.png" alt="Screen Shot 2019-06-07 at 4.13.46 PM" /></p>
+
+<p>接下来的问题就是在 3D 视差空间中去寻找这样子的一个平面了，它能够使得每一个点的 cost 尽可能的小，一个平面可以由法向量和一个点决定，这里面每一个点有N = ($n_1$, $n_2$, $n_3)^{\rm T}$ 和 $d$ 四个自由度，在全局空间中搜索最优解十分困难，而 PatchMatch 可以快速的得到一个近似解。</p>
+
+<p>PatchMatch的思路就是，对于一幅图像而言，相邻的像素总是具有相似的特性，在这里就是视差和法向量，试想被相机拍摄的一面墙，它的所有像素在视差空间中的法向量肯定是一样的，一幅图像有很多的像素，那么我们可以给每一个像素所要求的参数随机一个初始值，有理由相信其中有的像素随机到的值和它的真实值是一样的或者近似的，然后把它在全图传播开来。事实证明，PatchMatch 的效果还不错，一般三次迭代可以收敛。</p>
+
+  
+
+  
+
+
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+    Written by <a href="https://typora.io">Typora</a>. Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. Deployed to <a href="https://pages.github.com">GitHub Pages</a>.
+  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-123456789-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+</body>
+</html>
