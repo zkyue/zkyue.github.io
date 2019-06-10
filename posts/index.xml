@@ -20,48 +20,5 @@
       <description>这篇论文是我进入立体匹配领域后读的第一篇论文，读的十分痛苦，最后总算把问题解决了，写篇博客谈谈我的理解。 PatchMatch Stereo 的主要创新点在于： 为了解决 fronto-parallel bias， 引入了 slanted support window 为了寻找 slanted support window， 使用了 PatchMatch 算法 什么</description>
     </item>
     
-    <item>
-      <title>日本語敬語体系</title>
-      <link>https://zkyue.github.io/posts/japanese-preview/</link>
-      <pubDate>Wed, 10 Apr 2019 14:26:00 +0800</pubDate>
-      
-      <guid>https://zkyue.github.io/posts/japanese-preview/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;日本語の敬語体系は、一般に、大きく尊敬語・謙譲語・丁寧語に分類される。文化審議会国語分科会は、2007年2月に「敬語の指針」を答申し、これに丁重語および美化語を含めた5分類を示している。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;尊敬語&#34;&gt;尊敬語&lt;/h1&gt;
-
-&lt;p&gt;尊敬語は、動作の主体を高めることで、主体への敬意を表す言い方である。動詞に「お（ご）～になる」を付けた形、また、助動詞「（ら）れる」を付けた形などが用いられる。たとえば、動詞「取る」の尊敬形として、「（先生が）お取りになる」「（先生が）取られる」などが用いられる。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>https://zkyue.github.io/posts/english-preview/</link>
-      <pubDate>Mon, 01 Apr 2019 14:26:00 +0800</pubDate>
-      
-      <guid>https://zkyue.github.io/posts/english-preview/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&#39;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&#39;t cover using CSS to style your theme.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Theme Preview</title>
-      <link>https://zkyue.github.io/posts/theme-preview/</link>
-      <pubDate>Sun, 31 Mar 2019 17:49:40 +0800</pubDate>
-      
-      <guid>https://zkyue.github.io/posts/theme-preview/</guid>
-      <description>&lt;h1 id=&#34;headings&#34;&gt;Headings&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    
   </channel>
 </rss>
