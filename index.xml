@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Cayman</title>
+    <title>Blog on 网站标题</title>
     <link>https://zkyue.github.io/</link>
-    <description>Recent content in Blog on Cayman</description>
+    <description>Recent content in Blog on 网站标题</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <lastBuildDate>Thu, 11 Apr 2019 14:26:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zkyue.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -17,11 +17,7 @@
       <pubDate>Thu, 11 Apr 2019 14:26:00 +0800</pubDate>
       
       <guid>https://zkyue.github.io/posts/chinese-preview/</guid>
-      <description>这篇论文是我进入立体匹配领域后读的第一篇论文，读的十分痛苦，最后总算把问题解决了，写篇博客谈谈我的理解。
-PatchMatch Stereo 的主要创新点在于：
- 为了解决 fronto-parallel bias， 引入了 slanted support window 为了寻找 slanted support window， 使用了 PatchMatch 算法  什么是 fronto-parallel bias ？在传统的局部窗口立体匹配过程中，参考图像的局部窗口在目标图像中每次位移一个像素同时计算 cost， 取 cost 最小的点为匹配点。然而这种计算只有当被摄物体的表面是和成像平面平行的时候才是成立的。如下图所示：当物体AB与像平面平行，它在左右相机中成像是一样大的，这时候用局部窗口在左右图像中去找匹配是可行的，然后当物体AB是斜着的时候，再用一个局部窗口去匹配 cost 最小的点就不一定准确了。
-回到 PatchMatch Stereo 这篇文章，在 x、y、d(视差）的三维空间中，作者去对每一个像素点拟合一个平面，来解决 fronto-parallel bias 问题。下图是作者画的二维示图，(a) 代表传统方法，由于视差每次只能移动一个像素，且局部像素点都在一个平面内，(a) 中只有 $P$ 点能够完美拟合，(b) 代表作者方法，视差是浮点数，可以解决出 $S$ 点以外的情况，按照作者的说法，$S$ 点也可以得到很好的近似。需要注意的是，如果每个图像点有自己的视差拟合平面，按理说 $S$ 点也应该能够完美拟合才对，但是下面的一个红色线段代表的单个像素的匹配窗口的大小，窗口中的每一个像素去计算代价是用的都是和中心点一样的平面参数，所以这个窗口不能弯曲，因为窗口内的其他点和中心点此时用的同一个平面法向量。理论上讲计算 cost 每个点用不同的平面参数能 handle 包括 $S$ 的所有情况，但这样会导致 PatchMatch 不收敛。
-接下来的问题就是在 3D 视差空间中去寻找这样子的一个平面了，它能够使得每一个点的 cost 尽可能的小，一个平面可以由法向量和一个点决定，这里面每一个点有N = ($n_1$, $n_2$, $n_3)^{\rm T}$ 和 $d$ 四个自由度，在全局空间中搜索最优解十分困难，而 PatchMatch 可以快速的得到一个近似解。</description>
+      <description>这篇论文是我进入立体匹配领域后读的第一篇论文，读的十分痛苦，最后总算把问题解决了，写篇博客谈谈我的理解。 PatchMatch Stereo 的主要创新点在于： 为了解决 fronto-parallel bias， 引入了 slanted support window 为了寻找 slanted support window， 使用了 PatchMatch 算法 什么</description>
     </item>
     
     <item>
@@ -47,7 +43,7 @@ PatchMatch Stereo 的主要创新点在于：
       <guid>https://zkyue.github.io/posts/english-preview/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;</description>
+&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&#39;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&#39;t cover using CSS to style your theme.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -57,12 +53,14 @@ PatchMatch Stereo 的主要创新点在于：
       
       <guid>https://zkyue.github.io/posts/theme-preview/</guid>
       <description>&lt;h1 id=&#34;headings&#34;&gt;Headings&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;color:#000080;font-weight:bold&#34;&gt;# H1
-&lt;/span&gt;&lt;span style=&#34;color:#000080;font-weight:bold&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#800080;font-weight:bold&#34;&gt;## H2
-&lt;/span&gt;&lt;span style=&#34;color:#800080;font-weight:bold&#34;&gt;### H3
-&lt;/span&gt;&lt;span style=&#34;color:#800080;font-weight:bold&#34;&gt;#### H4
-&lt;/span&gt;&lt;span style=&#34;color:#800080;font-weight:bold&#34;&gt;##### H5
-&lt;/span&gt;&lt;span style=&#34;color:#800080;font-weight:bold&#34;&gt;&lt;/span&gt;###### H6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -73,25 +71,26 @@ PatchMatch Stereo 的主要创新点在于：
       <guid>https://zkyue.github.io/about/</guid>
       <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
 Hugo makes use of a variety of open source projects including:
- https://github.</description>
+ https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
+Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.</description>
     </item>
     
     <item>
       <title>Cayman Typography</title>
-      <link>https://zkyue.github.io/cayman-typography/</link>
+      <link>https://zkyue.github.io/post/cayman-typography/</link>
       <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zkyue.github.io/cayman-typography/</guid>
+      <guid>https://zkyue.github.io/post/cayman-typography/</guid>
       <description>Text Text can be **bold**, _italic_, or ~~strikethrough~~. [Links](https://github.com) should be blue with no underlines (unless hovered over).  Text can be bold, italic, or strikethrough. Links should be blue with no underlines (unless hovered over).
-Paragraph There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.</description>
+Paragraph There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.  There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.</description>
     </item>
     
     <item>
       <title>Katex Math Typesetting</title>
-      <link>https://zkyue.github.io/katex-math-typesetting/</link>
+      <link>https://zkyue.github.io/post/katex-math-typesetting/</link>
       <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zkyue.github.io/katex-math-typesetting/</guid>
+      <guid>https://zkyue.github.io/post/katex-math-typesetting/</guid>
       <description>Enable Katex in the config file by setting the katex param to true. This will import the necessary Katex CSS/JS.
 Note: Use the online reference of supported TeX functions.
 Some math:
@@ -102,33 +101,35 @@ $$ \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } $$  $$ \varphi = 
     
     <item>
       <title>NASA Images</title>
-      <link>https://zkyue.github.io/nasa-images/</link>
+      <link>https://zkyue.github.io/post/nasa-images/</link>
       <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zkyue.github.io/nasa-images/</guid>
-      <description>The below images are from the NASA Image and Video Library &amp;ndash; indulge yourself, revel in their beauty. Also, the built-in figure shortcode is shown for each image.
-{{&amp;lt; figure img=&amp;quot;sun.jpg&amp;quot; caption=&amp;quot;The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. It is by far the most important source of energy for life on Earth.</description>
+      <guid>https://zkyue.github.io/post/nasa-images/</guid>
+      <description>The below images are from the NASA Image and Video Library -- indulge yourself, revel in their beauty. Also, the built-in figure shortcode is shown for each image.
+{{&amp;lt; figure img=&amp;quot;sun.jpg&amp;quot; caption=&amp;quot;The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. It is by far the most important source of energy for life on Earth. [Credits](https://images.nasa.gov/details-GSFC_20171208_Archive_e000393.html).&amp;quot; command=&amp;quot;Resize&amp;quot; options=&amp;quot;800x&amp;quot; &amp;gt;}}    The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process.</description>
     </item>
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>https://zkyue.github.io/hugo-template-primer/</link>
+      <link>https://zkyue.github.io/post/hugo-template-primer/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://zkyue.github.io/hugo-template-primer/</guid>
+      <guid>https://zkyue.github.io/post/hugo-template-primer/</guid>
       <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.</description>
+This document is a brief primer on using Go templates. The Go docs provide more details.
+Introduction to Go Templates Go templates provide an extremely simple template language. It adheres to the belief that only the most basic of logic belongs in the template or view layer.</description>
     </item>
     
     <item>
       <title>Migrate to Hugo from Jekyll</title>
-      <link>https://zkyue.github.io/migrate-from-jekyll/</link>
+      <link>https://zkyue.github.io/post/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://zkyue.github.io/migrate-from-jekyll/</guid>
+      <guid>https://zkyue.github.io/post/migrate-from-jekyll/</guid>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&#39;ll want any files that should reside at the root (such as CNAME) to be moved to static.
+Create your Hugo configuration file Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too.</description>
     </item>
     
   </channel>

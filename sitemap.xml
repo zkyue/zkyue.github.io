@@ -81,7 +81,7 @@
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/cayman-typography/</loc>
+    <loc>https://zkyue.github.io/post/cayman-typography/</loc>
     <lastmod>2019-03-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -104,7 +104,7 @@
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/katex-math-typesetting/</loc>
+    <loc>https://zkyue.github.io/post/katex-math-typesetting/</loc>
     <lastmod>2019-03-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -133,7 +133,7 @@
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/nasa-images/</loc>
+    <loc>https://zkyue.github.io/post/nasa-images/</loc>
     <lastmod>2018-12-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -174,7 +174,7 @@
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/hugo-template-primer/</loc>
+    <loc>https://zkyue.github.io/post/hugo-template-primer/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
   
@@ -209,13 +209,18 @@
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/migrate-from-jekyll/</loc>
+    <loc>https://zkyue.github.io/post/migrate-from-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://zkyue.github.io/tags/jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
