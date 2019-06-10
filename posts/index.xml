@@ -20,5 +20,16 @@
       <description>PatchMatch Stereo 是微软 2011 年发在 BMVC 上的一篇做立体匹配的文章，由于效果很好近年还有大佬的文章在引用。 创新 PatchMatch Stereo 的主要创新点在于： 为了解决 fronto-parallel bias， 引入了 slanted support window 为了寻找 slanted support window， 使用了 PatchMatch 算法 理解 什么是 fronto-parallel bias ？在传</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</guid>
+      <description>通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉。
+$x$ 和 $x&amp;rsquo;$ 代表图像点在各自图像中的像素坐标，上式意味着我们可以通过物体在两个相机中成像的位置差异，即视差来得到物体的空间深度。视差和深度的转换关系并不那么一目了然，具体的推导可以参见这里。
+接下来的问题是</description>
+    </item>
+    
   </channel>
 </rss>
