@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="Zeuk"/>
+
+  
+  <meta name="description" content="PatchMatch Stereo 是微软 2011 年发在 BMVC 上的一篇做立体匹配的文章，由于效果很好近年还有大佬的文章在引用。 创新 PatchMatch Stereo 的主要创新点在于： 为了解决 fronto-parallel bias， 引入了 slanted support window 为了寻找 slanted support window， 使用了 PatchMatch 算法 理解 什么是 fronto-parallel bias ？在传"/>
+  
+
+  
+  
+  <meta name="keywords" content="Hugo, theme, zozo"/>
+  
+
+  
+  <link rel="canonical" href="https://zkyue.github.io/posts/patchmatchstereo/"/>
+
+  
+
+  <title>PatchMatch Stereo &middot; 大香蕉</title>
+
+  <link rel="shortcut icon" href="https://zkyue.github.io/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/animate.min.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/remixicon.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/zozo.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/highlight.css"/>
+
+  
+  
+</head>
+
+<body>
+<div class="main animated">
+  <div class="nav_container animated fadeInDown">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      
+      <li>
+        <a href="/">首页</a>
+      </li>
+      
+      <li>
+        <a href="/posts/">归档</a>
+      </li>
+      
+      <li>
+        <a href="/tags/">标签</a>
+      </li>
+      
+      <li>
+        <a href="/about/">关于</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+  <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://zkyue.github.io">
+          <span>大香蕉</span>
+          <img src="https://zkyue.github.io/images/logo.svg"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">大香蕉是一个没有感情的代码搬运工</p>
+      <div class="my_socials">
+        
+        
+        <a href="https://github.com/zkyue" title="github" target="_blank"><i class="remixicon-github-fill"></i></a>
+        
+        
+        <a href="https://zkyue.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="content">
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/patchmatchstereo/'>PatchMatch Stereo</a></h2>
+          <span class="date">2019.05.18</span>
+        </div>
+        <div class="post_content markdown">
+
+<p><a href="https://www.microsoft.com/en-us/research/publication/patchmatch-stereo-stereo-matching-with-slanted-support-windows/">PatchMatch Stereo</a> 是微软 2011 年发在 BMVC 上的一篇做立体匹配的文章，由于效果很好近年还有大佬的文章在引用。</p>
+
+<h3 id="创新">创新</h3>
+
+<p>PatchMatch Stereo 的主要创新点在于：</p>
+
+<ul>
+<li><p>为了解决 fronto-parallel bias， 引入了 slanted support window</p></li>
+
+<li><p>为了寻找 slanted support window， 使用了 PatchMatch 算法</p></li>
+</ul>
+
+<h3 id="理解">理解</h3>
+
+<p>什么是 fronto-parallel bias ？在传统的局部窗口立体匹配过程中，参考图像的局部窗口在目标图像中每次位移一个像素同时计算 cost， 取 cost 最小的点为匹配点。然而这种计算只有当被摄物体的表面是和成像平面平行的时候才是成立的。如下图所示：<img src="https://github.com/zkyue/picturefloor/raw/master/%20fronto-parallel_bias.png" alt="20130620152541328" /></p>
+
+<p>当物体AB与像平面平行，它在左右相机中成像是一样大的，这时候用局部窗口在左右图像中去找匹配是可行的，然后当物体AB是斜着的时候，再用一个局部窗口去匹配 cost 最小的点就不一定准确了。</p>
+
+<p>回到 PatchMatch Stereo 这篇文章，在 x、y、d(视差）的三维空间中，作者去对每一个像素点拟合一个平面，来解决 fronto-parallel bias 问题。下图是作者画的二维示图，(a) 代表传统方法，由于视差每次只能移动一个像素，且局部像素点都在一个平面内，(a) 中只有 $P$ 点能够完美拟合，(b) 代表作者方法，视差是浮点数，可以解决出 $S$ 点以外的情况，按照作者的说法，$S$ 点也可以得到很好的近似。需要注意的是，如果每个图像点有自己的视差拟合平面，按理说 $S$ 点也应该能够完美拟合才对，但是下面的一个红色线段代表的单个像素的匹配窗口的大小，窗口中的每一个像素去计算代价是用的都是和中心点一样的平面参数，所以这个窗口不能弯曲，因为窗口内的其他点和中心点此时用的同一个平面法向量。理论上讲计算 cost 每个点用不同的平面参数能 handle 包括 $S$ 的所有情况，但这样会导致 PatchMatch 不收敛。</p>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/slanted_window.png" alt="Screen Shot 2019-06-07 at 4.13.46 PM" /></p>
+
+<p>接下来的问题就是在 3D 视差空间中去寻找这样子的一个平面了，它能够使得每一个点的 cost 尽可能的小，一个平面可以由法向量和一个点决定，这里面每一个点有N = ($n_1$, $n_2$, $n_3)^{\rm T}$ 和 $d$ 四个自由度，在全局空间中搜索最优解十分困难，而 PatchMatch 可以快速的得到一个近似解。</p>
+
+<p>PatchMatch的思路就是，对于一幅图像而言，相邻的像素总是具有相似的特性，在这里就是视差和法向量，试想被相机拍摄的一面墙，它的所有像素在视差空间中的法向量肯定是一样的，一幅图像有很多的像素，那么我们可以给每一个像素所要求的参数随机一个初始值，有理由相信其中有的像素随机到的值和它的真实值是一样的或者近似的，然后把它在全图传播开来。事实证明，PatchMatch 的效果还不错，一般三次迭代可以收敛。</p>
+
+<h3 id="点评">点评</h3>
+
+<p>这个算法的效果现在（2019.5）已经在 <a href="http://vision.middlebury.edu/stereo/eval/">Middlebury</a> 排行榜的80名开外了，为什么现在还有很多人用我也不知道。它的速度名义上很快，用 i5 四核处理器却要跑一分钟一帧，ICCV 2015 的 <a href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Galliani_Massively_Parallel_Multiview_ICCV_2015_paper.pdf">Gipuma</a> 把它拓展成 Multiview 　Stereo 并且提出了一种并行方法，使得 PatchMatch Stereo 能够在普通 GPU 上跑得很欢快。一个由 <a href="https://github.com/nebula-beta/PatchMatchCuda">ZhengMao Gong</a> 实现我做了略微改进的 <a href="https://github.com/zkyue/PatchMatchCuda">PatchMatchCuda</a> 版在这里。</p>
+</div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://zkyue.github.io/tags/3d-reconstruction/">3D Reconstruction</a>
+                
+                <a href="https://zkyue.github.io/tags/paper-reading/">Paper Reading</a>
+                
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="powered_by">
+    <a href="https://zeuk.me">Designed by Zeuk,</a>
+    <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+  </div>
+
+  <div class="footer_slogan">
+    <span></span>
+  </div>
+</footer>
+
+
+
+<script src="https://zkyue.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://zkyue.github.io/js/zozo.js"></script>
+<script src="https://zkyue.github.io/js/highlight.pack.js"></script>
+<link  href="https://zkyue.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://zkyue.github.io/js/fancybox.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+
+
+
+</body>
+</html>
