@@ -6,15 +6,15 @@
     <description>Recent content in Posts on 网站标题</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 11 Apr 2019 14:26:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 May 2019 14:26:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zkyue.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>药师灌顶真言</title>
+      <title>PatchMatch Stereo</title>
       <link>https://zkyue.github.io/posts/chinese-preview/</link>
-      <pubDate>Thu, 11 Apr 2019 14:26:00 +0800</pubDate>
+      <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
       
       <guid>https://zkyue.github.io/posts/chinese-preview/</guid>
       <description>这篇论文是我进入立体匹配领域后读的第一篇论文，读的十分痛苦，最后总算把问题解决了，写篇博客谈谈我的理解。 PatchMatch Stereo 的主要创新点在于： 为了解决 fronto-parallel bias， 引入了 slanted support window 为了寻找 slanted support window， 使用了 PatchMatch 算法 什么</description>
