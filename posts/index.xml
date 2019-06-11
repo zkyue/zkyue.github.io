@@ -21,14 +21,12 @@
     </item>
     
     <item>
-      <title></title>
+      <title>双目立体视觉&amp;PatchMatch</title>
       <link>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
       
       <guid>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</guid>
-      <description>通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉。
-$x$ 和 $x&amp;rsquo;$ 代表图像点在各自图像中的像素坐标，上式意味着我们可以通过物体在两个相机中成像的位置差异，即视差来得到物体的空间深度。视差和深度的转换关系并不那么一目了然，具体的推导可以参见这里。
-接下来的问题是</description>
+      <description>Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&amp;rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心的距离，$f$ 是焦距，则物体 $\rm X$ 的深度 $\rm Z$</description>
     </item>
     
   </channel>

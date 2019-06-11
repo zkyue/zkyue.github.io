@@ -10,9 +10,7 @@
         content="大香蕉"/>
 
   
-  <meta name="description" content="通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉。
-$x$ 和 $x&amp;rsquo;$ 代表图像点在各自图像中的像素坐标，上式意味着我们可以通过物体在两个相机中成像的位置差异，即视差来得到物体的空间深度。视差和深度的转换关系并不那么一目了然，具体的推导可以参见这里。
-接下来的问题是"/>
+  <meta name="description" content="Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&amp;rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心的距离，$f$ 是焦距，则物体 $\rm X$ 的深度 $\rm Z$"/>
   
 
   
@@ -25,7 +23,7 @@ $x$ 和 $x&amp;rsquo;$ 代表图像点在各自图像中的像素坐标，上式
 
   
 
-  <title> &middot; 大香蕉</title>
+  <title>双目立体视觉&amp;PatchMatch &middot; 大香蕉</title>
 
   <link rel="shortcut icon" href="https://zkyue.github.io/images/favicon.ico"/>
   <link rel="stylesheet" href="https://zkyue.github.io/css/animate.min.css"/>
@@ -94,18 +92,47 @@ $x$ 和 $x&amp;rsquo;$ 代表图像点在各自图像中的像素坐标，上式
     <div class="post_page">
       <div class="post animated fadeInDown">
         <div class="post_title post_detail_title">
-          <h2><a href='/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/'></a></h2>
-          <span class="date">0001.01.01</span>
+          <h2><a href='/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/'>双目立体视觉&amp;PatchMatch</a></h2>
+          <span class="date">2019.05.18</span>
         </div>
-        <div class="post_content markdown"><p>通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉。</p>
+        <div class="post_content markdown">
+
+<h4 id="introduction">Introduction</h4>
+
+<p>通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。</p>
 
 <p><img src="https://github.com/zkyue/Picturefloor/raw/master/disparity%26depth.png" alt="Depth from disparity" /></p>
 
-<p>$x$ 和 $x&rsquo;$ 代表图像点在各自图像中的像素坐标，上式意味着我们可以通过物体在两个相机中成像的位置差异，即视差来得到物体的空间深度。视差和深度的转换关系并不那么一目了然，具体的推导可以参见<a href="https://blog.csdn.net/xiaohaijiejie/article/details/49721415">这里</a>。</p>
+<p>一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心的距离，$f$ 是焦距，则物体 $\rm X$ 的深度 $\rm Z$ 可以通过它在左右相机图像中成像点横坐标  $x$ 和 $x&rsquo;$ 之差，即视差，和上述参数求得。视差和深度的转换关系并不那么一目了然，具体的推导可以参见<a href="https://blog.csdn.net/xiaohaijiejie/article/details/49721415">这里</a>。</p>
 
-<p>接下来的问题是</p>
+<p>在双目立体视觉系统中，$f$ 和 $\rm B$ 可以通过相机标定比较准确地求得，而求视差的问题可以转化为求 $ X$ 在另一幅图像中的对应点 $ X&rsquo;$ 的问题，也就是本文的主角 —— 立体匹配。</p>
+
+<p>可以看到上面求视差的过程有一个前提，$ X$  和 $ X&rsquo;$ 必须在图像的同一行上，我们可以通 Stereo Rectification 来达成。</p>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/Rectification.png" alt="Stereo Rectification" /></p>
+
+<h4 id="method">Method</h4>
+
+<p>现在来明确一下立体匹配问题，输入是两幅经过 Stereo Rectification 的图像，输出是每个像素点的视差，任务是以一幅图像像素点为参考，在另一幅图像的同一行中搜索与之匹配的点。</p>
+
+<p>一个最基本的方法是比较两个像素点的绝对值差异然后取值最小的点为匹配点，但是由于图像噪声和相邻像素点的近似这个方法基本不可用。为了增加它的鲁棒性，可以用一个窗口内的像素去做对比而非单个像素，这就是最原始的立体匹配算法了。</p>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/Basic_stereo_matching_algorithm.png" alt="" /></p>
 </div>
         <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://zkyue.github.io/tags/3d-reconstruction/">3D Reconstruction</a>
+                
+                <a href="https://zkyue.github.io/tags/paper-reading/">Paper Reading</a>
+                
+              </span>
+            </div>
+          </div>
           
         </div>
       </div>
