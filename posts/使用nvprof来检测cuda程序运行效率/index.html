@@ -10,7 +10,7 @@
         content="大香蕉"/>
 
   
-  <meta name="description" content="##使用 nvprof 来检测 CUDA 程序运行效率 nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curand_kernel.h&amp;gt; __global__ void hello() {"/>
+  <meta name="description" content="nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curand_kernel.h&amp;gt; __global__ void hello() { printf(&amp;quot;Hello CUDA!\n&amp;quot;); } int main() { cudaFree(0); hello&amp;lt;&amp;lt;&amp;lt;1,10&amp;gt;&amp;gt;&amp;gt;(); cudaDeviceReset(); return 0; } 我们编"/>
   
 
   
@@ -95,9 +95,7 @@
           <h2><a href='/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/'>使用 nvprof 来检测 CUDA 程序运行效率</a></h2>
           <span class="date">2019.06.03</span>
         </div>
-        <div class="post_content markdown"><p>##使用 nvprof 来检测 CUDA 程序运行效率</p>
-
-<p>nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。</p>
+        <div class="post_content markdown"><p>nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。</p>
 
 <pre><code class="language-c++">#include &lt;stdio.h&gt;
 #include &lt;curand_kernel.h&gt;
