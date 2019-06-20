@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 大香蕉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 18 May 2019 14:26:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 14:26:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zkyue.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CUDA</title>
+      <link>https://zkyue.github.io/tags/cuda/</link>
+      <pubDate>Mon, 03 Jun 2019 14:26:00 +0800</pubDate>
+      
+      <guid>https://zkyue.github.io/tags/cuda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nvprof</title>
+      <link>https://zkyue.github.io/tags/nvprof/</link>
+      <pubDate>Mon, 03 Jun 2019 14:26:00 +0800</pubDate>
+      
+      <guid>https://zkyue.github.io/tags/nvprof/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>3D Reconstruction</title>
@@ -26,6 +44,15 @@
       <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
       
       <guid>https://zkyue.github.io/tags/paper-reading/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SLAM</title>
+      <link>https://zkyue.github.io/tags/slam/</link>
+      <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
+      
+      <guid>https://zkyue.github.io/tags/slam/</guid>
       <description></description>
     </item>
     

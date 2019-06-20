@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://zkyue.github.io/tags/cuda/</loc>
+    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/posts/</loc>
+    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/tags/</loc>
+    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/tags/nvprof/</loc>
+    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</loc>
+    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/</loc>
+    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://zkyue.github.io/tags/3d-reconstruction/</loc>
     <lastmod>2019-05-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
@@ -20,26 +55,19 @@
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/posts/</loc>
+    <loc>https://zkyue.github.io/tags/slam/</loc>
     <lastmod>2019-05-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/tags/</loc>
+    <loc>https://zkyue.github.io/posts/slam/</loc>
     <lastmod>2019-05-18T14:26:00+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</loc>
     <lastmod>2019-05-18T14:26:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zkyue.github.io/</loc>
-    <lastmod>2019-05-18T14:26:00+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

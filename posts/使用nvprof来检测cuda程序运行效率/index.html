@@ -10,7 +10,7 @@
         content="大香蕉"/>
 
   
-  <meta name="description" content="Hugo theme zozo example site."/>
+  <meta name="description" content="##使用 nvprof 来检测 CUDA 程序运行效率 nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curand_kernel.h&amp;gt; __global__ void hello() {"/>
   
 
   
@@ -19,13 +19,11 @@
   
 
   
-  <link rel="canonical" href="https://zkyue.github.io/tags/paper-reading/"/>
+  <link rel="canonical" href="https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/"/>
 
   
-  <link rel="alternate" type="application/rss&#43;xml" href="https://zkyue.github.io/tags/paper-reading/index.xml">
-  
 
-  <title>Paper Reading &middot; 大香蕉</title>
+  <title>使用 nvprof 来检测 CUDA 程序运行效率 &middot; 大香蕉</title>
 
   <link rel="shortcut icon" href="https://zkyue.github.io/images/favicon.ico"/>
   <link rel="stylesheet" href="https://zkyue.github.io/css/animate.min.css"/>
@@ -91,29 +89,68 @@
 </div>
 
   <div class="content">
-    <div class="list_with_title">
-      
-      <div class="listing_title">2019</div>
-      <div class="listing">
-        
-        <div class="listing_item">
-          <div class="listing_post">
-            <a href="/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/">双目立体视觉 with PatchMatch</a>
-            <div class="post_time"><span class="date">05-18</span></div>
-          </div>
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/'>使用 nvprof 来检测 CUDA 程序运行效率</a></h2>
+          <span class="date">2019.06.03</span>
         </div>
-        
-        <div class="listing_item">
-          <div class="listing_post">
-            <a href="/posts/patchmatchstereo/">PatchMatch Stereo</a>
-            <div class="post_time"><span class="date">05-18</span></div>
+        <div class="post_content markdown"><p>##使用 nvprof 来检测 CUDA 程序运行效率</p>
+
+<p>nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。</p>
+
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;curand_kernel.h&gt;
+__global__ void hello()
+{
+    printf(&quot;Hello CUDA!\n&quot;);
+}
+int main()
+{
+    cudaFree(0);
+    hello&lt;&lt;&lt;1,10&gt;&gt;&gt;();
+    cudaDeviceReset();
+    return 0;
+}
+</code></pre>
+
+<p>我们编译然后使用 nvprof 运行可以得到如下结果：</p>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/cuda_hello.png" alt="cuda_hello" /></p>
+
+<p>nvprof 会别类分门统计出一个详尽的结果，这里面需要注意的点有：</p>
+
+<ul>
+<li>nvprof 在 Nvidia Driver 418 以后的版本中使用受到限制，报错为&rdquo;Waining：The user does not have permission to profile on the target device.&ldquo;，我按照<a href="https://developer.nvidia.com/nvidia-development-tools-solutions-ERR_NVGPUCTRPERM-permission-issue-performance-counters">官网的操作</a>不 work，最后在<a href="https://zhuanlan.zhihu.com/p/62128896">知乎</a>找到的解决方案，备份如下：</li>
+</ul>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/nvprof_permission.jpg" alt="nvprof_permission" /></p>
+
+<ul>
+<li>CUDA 启动和释放运行环境都需要时间，这个会算在程序调用的 CUDA API 的第一个和最后一个头上，如果你调用的第一个函数是 cudaMalloc() 你可能会觉得内存分配怎么会这么慢！我这里用 <code>cudaFree(0)</code>和 <code>cudaDeviceReset()</code> 来为这两个时间背锅,可以看到它们的耗时都在几十上百毫秒的级别。</li>
+<li>如果你需要在 kernel 函数中打印输出，直接调用 kernel 函数是没有效果的，可以在程序末尾调用<code>cudaDeviceReset()</code>或<code>cudaDeviceSynchronize()</code>来达到设备同步。</li>
+</ul>
+</div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://zkyue.github.io/tags/nvprof/">nvprof</a>
+                
+                <a href="https://zkyue.github.io/tags/cuda/">CUDA</a>
+                
+              </span>
+            </div>
           </div>
+          
         </div>
-        
       </div>
       
+      
     </div>
-    <div class="pagination"></div>
   </div>
   <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
 </div>

@@ -10,7 +10,7 @@
         content="大香蕉"/>
 
   
-  <meta name="description" content="Hugo theme zozo example site."/>
+  <meta name="description" content="SLAM SLAM(Simultaneous Localization and Mapping) 的主要目的是在机器人运动过程中对自身的位姿和周围的环境进行估计。 位姿 在三维空间中我们用坐标加旋转角度一共6个自由度来对位姿进行描述 旋转 旋转的表示： 旋转矩阵 旋转向量 欧拉角 四元数 对一个点进行旋转"/>
   
 
   
@@ -19,13 +19,11 @@
   
 
   
-  <link rel="canonical" href="https://zkyue.github.io/tags/paper-reading/"/>
+  <link rel="canonical" href="https://zkyue.github.io/posts/slam/"/>
 
   
-  <link rel="alternate" type="application/rss&#43;xml" href="https://zkyue.github.io/tags/paper-reading/index.xml">
-  
 
-  <title>Paper Reading &middot; 大香蕉</title>
+  <title>SLAM &middot; 大香蕉</title>
 
   <link rel="shortcut icon" href="https://zkyue.github.io/images/favicon.ico"/>
   <link rel="stylesheet" href="https://zkyue.github.io/css/animate.min.css"/>
@@ -91,29 +89,63 @@
 </div>
 
   <div class="content">
-    <div class="list_with_title">
-      
-      <div class="listing_title">2019</div>
-      <div class="listing">
-        
-        <div class="listing_item">
-          <div class="listing_post">
-            <a href="/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/">双目立体视觉 with PatchMatch</a>
-            <div class="post_time"><span class="date">05-18</span></div>
-          </div>
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/slam/'>SLAM</a></h2>
+          <span class="date">2019.05.18</span>
         </div>
-        
-        <div class="listing_item">
-          <div class="listing_post">
-            <a href="/posts/patchmatchstereo/">PatchMatch Stereo</a>
-            <div class="post_time"><span class="date">05-18</span></div>
+        <div class="post_content markdown">
+
+<h1 id="slam">SLAM</h1>
+
+<p>SLAM(Simultaneous Localization and Mapping) 的主要目的是在机器人运动过程中对自身的位姿和周围的环境进行估计。</p>
+
+<h2 id="位姿">位姿</h2>
+
+<p>在三维空间中我们用坐标加旋转角度一共6个自由度来对位姿进行描述</p>
+
+<h3 id="旋转">旋转</h3>
+
+<p>旋转的表示：</p>
+
+<ul>
+<li>旋转矩阵</li>
+<li>旋转向量</li>
+<li>欧拉角</li>
+<li>四元数</li>
+</ul>
+
+<p>对一个点进行旋转，通常是乘一个旋转矩阵。在SLAM过程中，旋转矩阵是我们需要优化的量，而旋转矩阵对加法不封闭，无法对其进行求导然后优化。</p>
+
+<h4 id="李群李代数">李群李代数</h4>
+
+<p>为了对旋转矩阵进行优化，引入了李群和李代数。 特殊正交群对应旋转矩阵，李代数对应旋转向量，二者可以通过罗德李格里格斯公式进行转化。在李代数中，旋转矩阵可以通过对旋转求导和扰动模型进行优化，扰动模型不需要你计算雅可比矩阵，更为优越。</p>
+
+<h4 id="优化">优化</h4>
+
+<p>待优化的量为位姿和空间坐标，输入量为图像观测数据和传感器数据。我们通过贝叶斯公式可以进行最大后验概率估计，然而由于先验概率一般不知道，只能进行最大似然概率估计。最大似然估计即是，在什么样的参数下，最有可能产生当前的观测数据。</p>
+
+<p><strong>通过分析我们可以发现，最大似然估计等价于对误差做最小二乘。</strong></p>
+</div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://zkyue.github.io/tags/slam/">SLAM</a>
+                
+              </span>
+            </div>
           </div>
+          
         </div>
-        
       </div>
       
+      
     </div>
-    <div class="pagination"></div>
   </div>
   <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
 </div>

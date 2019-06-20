@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 大香蕉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 18 May 2019 14:26:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 14:26:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zkyue.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用 nvprof 来检测 CUDA 程序运行效率</title>
+      <link>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</link>
+      <pubDate>Mon, 03 Jun 2019 14:26:00 +0800</pubDate>
+      
+      <guid>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</guid>
+      <description>##使用 nvprof 来检测 CUDA 程序运行效率 nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curand_kernel.h&amp;gt; __global__ void hello() {</description>
+    </item>
     
     <item>
       <title>PatchMatch Stereo</title>
@@ -21,12 +30,21 @@
     </item>
     
     <item>
-      <title>双目立体视觉&amp;PatchMatch</title>
+      <title>SLAM</title>
+      <link>https://zkyue.github.io/posts/slam/</link>
+      <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
+      
+      <guid>https://zkyue.github.io/posts/slam/</guid>
+      <description>SLAM SLAM(Simultaneous Localization and Mapping) 的主要目的是在机器人运动过程中对自身的位姿和周围的环境进行估计。 位姿 在三维空间中我们用坐标加旋转角度一共6个自由度来对位姿进行描述 旋转 旋转的表示： 旋转矩阵 旋转向量 欧拉角 四元数 对一个点进行旋转</description>
+    </item>
+    
+    <item>
+      <title>双目立体视觉 with PatchMatch</title>
       <link>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</link>
       <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
       
       <guid>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</guid>
-      <description>Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&amp;rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心的距离，$f$ 是焦距，则物体 $\rm X$ 的深度 $\rm Z$</description>
+      <description>Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&amp;rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心之间的距离，$f$ 是焦距，则物体 $\rm X$ 的深度</description>
     </item>
     
   </channel>

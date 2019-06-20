@@ -10,7 +10,7 @@
         content="大香蕉"/>
 
   
-  <meta name="description" content="Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&amp;rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心的距离，$f$ 是焦距，则物体 $\rm X$ 的深度 $\rm Z$"/>
+  <meta name="description" content="Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&amp;rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心之间的距离，$f$ 是焦距，则物体 $\rm X$ 的深度"/>
   
 
   
@@ -23,7 +23,7 @@
 
   
 
-  <title>双目立体视觉&amp;PatchMatch &middot; 大香蕉</title>
+  <title>双目立体视觉 with PatchMatch &middot; 大香蕉</title>
 
   <link rel="shortcut icon" href="https://zkyue.github.io/images/favicon.ico"/>
   <link rel="stylesheet" href="https://zkyue.github.io/css/animate.min.css"/>
@@ -92,7 +92,7 @@
     <div class="post_page">
       <div class="post animated fadeInDown">
         <div class="post_title post_detail_title">
-          <h2><a href='/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/'>双目立体视觉&amp;PatchMatch</a></h2>
+          <h2><a href='/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/'>双目立体视觉 with PatchMatch</a></h2>
           <span class="date">2019.05.18</span>
         </div>
         <div class="post_content markdown">
@@ -103,11 +103,11 @@
 
 <p><img src="https://github.com/zkyue/Picturefloor/raw/master/disparity%26depth.png" alt="Depth from disparity" /></p>
 
-<p>一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心的距离，$f$ 是焦距，则物体 $\rm X$ 的深度 $\rm Z$ 可以通过它在左右相机图像中成像点横坐标  $x$ 和 $x&rsquo;$ 之差，即视差，和上述参数求得。视差和深度的转换关系并不那么一目了然，具体的推导可以参见<a href="https://blog.csdn.net/xiaohaijiejie/article/details/49721415">这里</a>。</p>
+<p>一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心之间的距离，$f$ 是焦距，则物体 $\rm X$ 的深度 $\rm Z$ 可以通过它在左右相机图像中成像点横坐标  $x$ 和 $x&rsquo;$ 之差，即视差，和 $\rm B$、$f$ 求得。视差和深度的转换关系并不那么一目了然，具体的推导可以参见<a href="https://blog.csdn.net/xiaohaijiejie/article/details/49721415">这里</a>。</p>
 
 <p>在双目立体视觉系统中，$f$ 和 $\rm B$ 可以通过相机标定比较准确地求得，而求视差的问题可以转化为求 $ X$ 在另一幅图像中的对应点 $ X&rsquo;$ 的问题，也就是本文的主角 —— 立体匹配。</p>
 
-<p>可以看到上面求视差的过程有一个前提，$ X$  和 $ X&rsquo;$ 必须在图像的同一行上，我们可以通 Stereo Rectification 来达成。</p>
+<p>可以看到上面求视差的过程有一个前提，$ X$  和 $ X&rsquo;$ 必须在图像的同一行上，这个我们可以通 Stereo Rectification 来达成。</p>
 
 <p><img src="https://github.com/zkyue/Picturefloor/raw/master/Rectification.png" alt="Stereo Rectification" /></p>
 
@@ -115,9 +115,48 @@
 
 <p>现在来明确一下立体匹配问题，输入是两幅经过 Stereo Rectification 的图像，输出是每个像素点的视差，任务是以一幅图像像素点为参考，在另一幅图像的同一行中搜索与之匹配的点。</p>
 
-<p>一个最基本的方法是比较两个像素点的绝对值差异然后取值最小的点为匹配点，但是由于图像噪声和相邻像素点的近似这个方法基本不可用。为了增加它的鲁棒性，可以用一个窗口内的像素去做对比而非单个像素，这就是最原始的立体匹配算法了。</p>
+<p>一个最基本的方法是比较两个像素点的绝对值差异然后取值最小的点为匹配点，但是由于图像噪声和相邻像素点的近似性这个方法基本不可用。为了增加它的鲁棒性，可以用一个窗口内的像素去做对比而非单个像素，这时用窗口内所有像素的绝对值差之和或者绝对值差的平方和等方法来度量两个窗口的匹配代价，选取代价的作为匹配点，这就是最原始的立体匹配算法了。</p>
 
 <p><img src="https://github.com/zkyue/Picturefloor/raw/master/Basic_stereo_matching_algorithm.png" alt="" /></p>
+
+<h4 id="experiment">Experiment</h4>
+
+<p>立体匹配算法经过多年发展有了很多不同的实现，但其基本的套路始终是寻找合适的代价函数计算匹配点之间的匹配代价以及如何减小匹配代价这两个方面。这里以 OpenCV 中的各种算法为例，来展示一下立体匹配的效果。截止 OpenCV 4.1，其中实现了8种立体匹配算法。以下结果为视差图，视差图的每个像素点的灰度值即代表该点的视差，为了增强图像对比度，这里对视差乘了3再做显示。</p>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/OpencvStereoTest.png" alt="OpencvStereo" /></p>
+
+<p>以上测试的输入为两张 427x370 分辨率的左右左右图像，CPU 和 GPU 环境分别为 i5-7400@3.00GHz x 4 和 GTX 1660 Ti。可以看到 OpenCV 的算法运行时间均在毫秒级别，在 CPU下可以选择 StereoSGBM，GPU下可以选择 StereoConstantSpaceBP 以达到不错的效果和运行时间的平衡。测试的源码及数据在<a href="https://github.com/zkyue/OpenCVStereo">这里</a>可以找到。</p>
+
+<h4 id="patchmatch-stereo">PatchMatch Stereo</h4>
+
+<p>OpenCV 中的 Stereo 算法已经略显古老，</p>
+
+<p><a href="https://www.microsoft.com/en-us/research/publication/patchmatch-stereo-stereo-matching-with-slanted-support-windows/">PatchMatch Stereo</a> 是微软 2011 年发在 BMVC 上的一篇做立体匹配的文章，在能够落地的算法中效果称得上state of the art 具体请参阅<a href="https://www.microsoft.com/en-us/research/publication/patchmatch-stereo-stereo-matching-with-slanted-support-windows/">原文</a>。</p>
+
+<h5 id="innovation">Innovation</h5>
+
+<ul>
+<li>为了解决 fronto-parallel bias， 引入了 slanted support window</li>
+<li>为了寻找 slanted support window， 使用了 PatchMatch 算法</li>
+</ul>
+
+<h5 id="understanding">Understanding</h5>
+
+<p>什么是 fronto-parallel bias ？在传统的局部窗口立体匹配过程中，参考图像的局部窗口在目标图像中每次位移一个像素同时计算 cost， 取 cost 最小的点为匹配点。然而这种计算只有当被摄物体的表面是和成像平面平行的时候才是成立的。如下图所示：<img src="https://github.com/zkyue/picturefloor/raw/master/%20fronto-parallel_bias.png" alt="20130620152541328" /></p>
+
+<p>当物体AB与像平面平行，它在左右相机中成像是一样大的，这时候用局部窗口在左右图像中去找匹配是可行的，然后当物体AB是斜着的时候，再用一个局部窗口去匹配 cost 最小的点就不一定准确了。</p>
+
+<p>回到 PatchMatch Stereo 这篇文章，在 x、y、d(视差）的三维空间中，作者去对每一个像素点拟合一个平面，来解决 fronto-parallel bias 问题。下图是作者画的二维示图，(a) 代表传统方法，由于视差每次只能移动一个像素，且局部像素点都在一个平面内，(a) 中只有 $P$ 点能够完美拟合，(b) 代表作者方法，视差是浮点数，可以解决除 $S$ 点以外的情况，按照作者的说法，$S$ 点也可以得到很好的近似。需要注意的是，如果每个图像点有自己的视差拟合平面，按理说 $S$ 点也应该能够完美拟合才对，但是下面的一个红色线段代表的单个像素的匹配窗口的大小，窗口中的每一个像素去计算代价是用的都是和中心点一样的平面参数，所以这个窗口不能弯曲，因为窗口内的其他点和中心点此时用的同一个平面法向量。理论上讲计算 cost 每个点用不同的平面参数能 handle 包括 $S$ 的所有情况，但这样会导致 PatchMatch 不收敛。</p>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/slanted_window.png" alt="Screen Shot 2019-06-07 at 4.13.46 PM" /></p>
+
+<p>接下来的问题就是在 3D 视差空间中去寻找这样子的一个平面了，它能够使得每一个点的 cost 尽可能的小，一个平面可以由法向量和一个点决定，这里面每一个点有N = ($n_1$, $n_2$, $n_3)^{\rm T}$ 和 $d$ 四个量需要求解，在全局空间中搜索显然实力不允许，而 PatchMatch 可以快速的得到一个近似解。</p>
+
+<p>PatchMatch的思路就是，对于一幅图像而言，相邻的像素总是具有相似的特性，在这里就是视差和法向量，试想被相机拍摄的一面墙，它的所有像素在视差空间中的法向量肯定是一样的，一幅图像有很多的像素，那么我们可以给每一个像素所要求的参数随机一个初始值，有理由相信其中有的像素随机到的值和它的真实值是一样的或者近似的，然后把它在全图传播开来。</p>
+
+<h5 id="result">Result</h5>
+
+<p>在实现事实证明，PatchMatch 的效果还不错，在使用 CPU 时一般三次迭代可以收敛，使用 gpu 的迭代次数会多一些，原因是 GPU</p>
 </div>
         <div class="post_footer">
           

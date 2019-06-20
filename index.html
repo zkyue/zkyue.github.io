@@ -97,6 +97,39 @@
 
 <div class="post animated fadeInDown">
   <div class="post_title">
+    <h2><a href='/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/'>使用 nvprof 来检测 CUDA 程序运行效率</a></h2>
+  </div>
+  
+  <div class="list">
+    <div class="post_content markdown">
+      <p>##使用 nvprof 来检测 CUDA 程序运行效率 nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。 #include &lt;stdio.h&gt; #include &lt;curand_kernel.h&gt; __global__ void hello() {......</p>
+    </div>
+  </div>
+  
+  <div class="post_footer">
+    <div class="meta">
+      <div class="info">
+        <span class="field">
+          <i class="remixicon-map-pin-time-line"></i>
+          <span class="date">2019.06.03</span>
+        </span>
+        
+        <span class="field tags">
+          <i class="remixicon-stack-line"></i>
+          
+          <a href="https://zkyue.github.io/tags/nvprof/">nvprof</a>
+          
+          <a href="https://zkyue.github.io/tags/cuda/">CUDA</a>
+          
+        </span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="post animated fadeInDown">
+  <div class="post_title">
     <h2><a href='/posts/patchmatchstereo/'>PatchMatch Stereo</a></h2>
   </div>
   
@@ -130,12 +163,43 @@
 
 <div class="post animated fadeInDown">
   <div class="post_title">
-    <h2><a href='/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/'>双目立体视觉&amp;PatchMatch</a></h2>
+    <h2><a href='/posts/slam/'>SLAM</a></h2>
   </div>
   
   <div class="list">
     <div class="post_content markdown">
-      <p>Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心的距离，$f$ 是焦距，则物体 $\rm X$ 的深度 $\rm Z$......</p>
+      <p>SLAM SLAM(Simultaneous Localization and Mapping) 的主要目的是在机器人运动过程中对自身的位姿和周围的环境进行估计。 位姿 在三维空间中我们用坐标加旋转角度一共6个自由度来对位姿进行描述 旋转 旋转的表示： 旋转矩阵 旋转向量 欧拉角 四元数 对一个点进行旋转......</p>
+    </div>
+  </div>
+  
+  <div class="post_footer">
+    <div class="meta">
+      <div class="info">
+        <span class="field">
+          <i class="remixicon-map-pin-time-line"></i>
+          <span class="date">2019.05.18</span>
+        </span>
+        
+        <span class="field tags">
+          <i class="remixicon-stack-line"></i>
+          
+          <a href="https://zkyue.github.io/tags/slam/">SLAM</a>
+          
+        </span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="post animated fadeInDown">
+  <div class="post_title">
+    <h2><a href='/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/'>双目立体视觉 with PatchMatch</a></h2>
+  </div>
+  
+  <div class="list">
+    <div class="post_content markdown">
+      <p>Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心之间的距离，$f$ 是焦距，则物体 $\rm X$ 的深度......</p>
     </div>
   </div>
   
