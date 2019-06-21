@@ -4,19 +4,36 @@
   
   <url>
     <loc>https://zkyue.github.io/tags/cuda/</loc>
-    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
+    <lastmod>2019-06-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://zkyue.github.io/posts/</loc>
-    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
+    <lastmod>2019-06-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://zkyue.github.io/tags/</loc>
-    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
+    <lastmod>2019-06-18T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/tags/curand/</loc>
+    <lastmod>2019-06-18T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</loc>
+    <lastmod>2019-06-18T14:26:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/</loc>
+    <lastmod>2019-06-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -29,12 +46,6 @@
   <url>
     <loc>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</loc>
     <lastmod>2019-06-03T14:26:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zkyue.github.io/</loc>
-    <lastmod>2019-06-03T14:26:00+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="大香蕉"/>
+
+  
+  <meta name="description" content="在一些算法中，快速生成大量伪随机数显得尤为重要。cuRAND 提供了在 host 端调用 device 端一次生成大量随机数储存在 device 端的 global 内存中和在 device 端调用一次产生单个随机数共 device 代码即时使用两种 API 。而后者使用不当可能会造成几个"/>
+  
+
+  
+  
+  <meta name="keywords" content="Hugo, theme, zozo"/>
+  
+
+  
+  <link rel="canonical" href="https://zkyue.github.io/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
+
+  
+
+  <title>cuRAND快速生成大量随机数 &middot; 大香蕉</title>
+
+  <link rel="shortcut icon" href="https://zkyue.github.io/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/animate.min.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/remixicon.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/zozo.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/highlight.css"/>
+
+  
+  
+</head>
+
+<body>
+<div class="main animated">
+  <div class="nav_container animated fadeInDown">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      
+      <li>
+        <a href="/">首页</a>
+      </li>
+      
+      <li>
+        <a href="/posts/">归档</a>
+      </li>
+      
+      <li>
+        <a href="/tags/">标签</a>
+      </li>
+      
+      <li>
+        <a href="/about/">关于</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+  <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://zkyue.github.io">
+          <span>大香蕉</span>
+          <img src="https://zkyue.github.io/images/logo.svg"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">大香蕉是一个没有感情的代码搬运工</p>
+      <div class="my_socials">
+        
+        
+        <a href="https://github.com/zkyue" title="github" target="_blank"><i class="remixicon-github-fill"></i></a>
+        
+        
+        <a href="https://zkyue.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="content">
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/'>cuRAND快速生成大量随机数</a></h2>
+          <span class="date">2019.06.18</span>
+        </div>
+        <div class="post_content markdown"><p>在一些算法中，快速生成大量伪随机数显得尤为重要。cuRAND 提供了在 host 端调用 device 端一次生成大量随机数储存在 device 端的 global 内存中和在 device 端调用一次产生单个随机数共 device 代码即时使用两种 API 。而后者使用不当可能会造成几个数量级的性能差距和效果差距，本文将主要对此进行分析。</p>
+
+<p>在下面的代码中，我使用了不同的参数方式来生成了一些随机数，然后使用 <a href="https://zkyue.github.io/posts/使用nvprof来检测cuda程序运行效率/">nvprof</a> 来对它们的性能做了比较, 并且把随机结果用OpenCV 可视化出来。</p>
+
+<pre><code class="language-c++">#include &lt;curand_kernel.h&gt;
+#include &lt;opencv2/opencv.hpp&gt;
+
+#define COLS 400
+#define ROWS 300
+#define N (COLS*ROWS)
+
+__global__ void random_test(curandState *states, float *data_f)
+{
+    int x = blockIdx.x * blockDim.x + threadIdx.x;
+    int y = blockIdx.y * blockDim.y + threadIdx.y;
+	  if(x &gt;= COLS) return;
+	  if(y &gt;= ROWS)return;
+    const int tid = y * COLS + x;
+    curandState state = states[tid];
+    
+    //curand_init(clock64(), 0, 0, &amp;state);
+    //curand_init(clock64(), pt.y, 0, &amp;state);
+    //curand_init(clock64(), 0, pt.x, &amp;state);
+    //curand_init(clock64(), pt.y, pt.x, &amp;state);
+    curand_init(tid, 0, 0, &amp;state);
+    //curand_init(tid, pt.y, 0, &amp;state);
+    //curand_init(tid, 0, pt.x, &amp;state);
+    //curand_init(tid, pt.y, pt.x, &amp;state);
+    data_f[tid] = curand_uniform(&amp;state)*255;
+    states[tid]=state;
+}
+
+int main()
+{
+
+    cudaFree(0); 
+
+    curandState *states;
+    float *data;
+    cudaMalloc((void **)&amp;states, N* sizeof(curandState));
+    cudaMalloc((void **)&amp;data, N* sizeof(float));
+
+    const int BLOCK_W = 32;
+	  const int BLOCK_H  = (BLOCK_W / 2);
+    dim3 block(BLOCK_W, BLOCK_H, 1);
+	  dim3 grid((COLS + block.x - 1) / block.x, (ROWS + block.y - 1) / block.y, 1);
+    random_test&lt;&lt;&lt;grid,block&gt;&gt;&gt;(states, data);
+    cudaDeviceSynchronize();
+
+    cv::Mat mat(ROWS, COLS, CV_32FC1);
+    cudaMemcpy(mat.data, data, N*sizeof(float),cudaMemcpyDeviceToHost);
+    mat.convertTo(mat, CV_8U);
+    cv::imwrite(&quot;mat.png&quot;,mat);
+    
+    cudaFree(states);
+    cudaFree(data);
+
+    cudaDeviceReset();
+    return 0;
+}
+
+</code></pre>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/random_test.jpeg" alt="random_test" /></p>
+
+<p>上图中每个标题的前三节是 <code>curand_init()</code> 的输入参数，最后一节为运行时间。不同的参数对运行时间的影响是几个数量级的，而且随着数据的增大呈非线性增长。</p>
+
+<p>现在来分析一下这其中的原因：</p>
+
+<pre><code>void curand_init( unsigned long long seed, unsigned long long sequence, unsigned long long offset, curandState_t* state )
+</code></pre>
+
+<p>这几个参数的意思是将<code>state</code>初始化到经过 $2^{67}*sequence+offset$ 次调用以 seed 为种子的 <code>curand()</code>函数以后的状态 sequence 和 offset 的值决定了<code>curand_init()</code> 的运算量。</p>
+
+<p><code>curand_init()</code>在 kernel 里使用需要遵循以下几点：</p>
+
+<ul>
+<li><code>curand_init()</code> 会使用较多的寄存器资源和 local memery，最好放在单独的 kernel 中运行以避免系统资源不足产生 global memery IO。</li>
+<li><code>curand_init()</code> 可能会很慢，在使用时可以把经过<code>curand_init()</code> 的 curandState 存放在 global memory 中，用时取回本地，用完放回原位，方便下次使用，上文的代码就对 curandState 进行了回存。</li>
+<li>在单线程程序中，经常会使用系统时间作为随机数发生器的种子，然而在GPU中由于大量线程的并发，仍然使用时间做种子如<code>random_bad()</code> 会使得很多线程的种子是一样的，在结果图片的前两幅所示，每个线程block中产生的随机数为常数。</li>
+<li>为了最大化速度，可以为每个线程使用不同的随机数种子，然后以 0 作为 subsequence 和 offset</li>
+</ul>
+</div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://zkyue.github.io/tags/cuda/">CUDA</a>
+                
+                <a href="https://zkyue.github.io/tags/curand/">cuRAND</a>
+                
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="powered_by">
+    <a href="https://zeuk.me">Designed by Zeuk,</a>
+    <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+  </div>
+
+  <div class="footer_slogan">
+    <span></span>
+  </div>
+</footer>
+
+
+
+<script src="https://zkyue.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://zkyue.github.io/js/zozo.js"></script>
+<script src="https://zkyue.github.io/js/highlight.pack.js"></script>
+<link  href="https://zkyue.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://zkyue.github.io/js/fancybox.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+
+
+
+</body>
+</html>
