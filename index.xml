@@ -30,15 +30,6 @@
     </item>
     
     <item>
-      <title>PatchMatch Stereo</title>
-      <link>https://zkyue.github.io/posts/patchmatchstereo/</link>
-      <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
-      
-      <guid>https://zkyue.github.io/posts/patchmatchstereo/</guid>
-      <description>PatchMatch Stereo 是微软 2011 年发在 BMVC 上的一篇做立体匹配的文章，由于效果很好近年还有大佬的文章在引用。 创新 PatchMatch Stereo 的主要创新点在于： 为了解决 fronto-parallel bias， 引入了 slanted support window 为了寻找 slanted support window， 使用了 PatchMatch 算法 理解 什么是 fronto-parallel bias ？在传</description>
-    </item>
-    
-    <item>
       <title>SLAM</title>
       <link>https://zkyue.github.io/posts/slam/</link>
       <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
@@ -66,6 +57,26 @@
 Hugo makes use of a variety of open source projects including:
  https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
 Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zkyue.github.io/posts/patchmatch-resource/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zkyue.github.io/posts/patchmatch-resource/</guid>
+      <description>PatchMatch Resource  PatchMatch Stereo - Stereo Matching with Slanted Support Windows
+ GPU-based Parallelization of a Sub-pixel Highresolution Stereo Matching Algorithm for Highthroughput Biomass Sorghum Phenotyping
+ 《Accurate Image-Guided Stereo Matching With Efficient Matching Cost and Disparity Refinement》(2016)
+ 《PMSC:PatchMatch-Based Superpixel Cut for accurate Stereo Matching》(2018)
+ 《NIPM-sWMF: Towards Efficient FPGA Design for High-Definition Large-Disparity Stereo Matching》(2018)
+ 《Robust Adaptive Normalized cross-Correlation for Stereo Matching Cost computation》(2017)
+ 《Color Image-Guided Boundary-Inconsistent region refinement for Stereo Matching》
+  # cuRAND快速生成大量随机数
+【进度】
+最近尝试了用各种方法对PatchMatch Stereo进行加速，总结如下：
+在输入图片尺寸为427x370，匹配窗口为11x11，迭代次数为3的情况下，在 GTX 1660 Ti 上运行时间由原来的约 385ms 降为约 337ms，这个速度在其他使用 PatchMatch 方法的论文中提到的速度约快100～200ms。
+思考：如何进一步加速？除了更强的 GPU 外，在处理视频流时，可利用前一帧的结果传播到下一帧来加速收敛，如果下一帧能在两次迭代收敛，那么 PatchMatch 的运行时间就变为原来的2/3. PatchMatch Stereo 总的来说是一个 PatchMatch 搜索框架加一个 cost 计算函数，原论文的 cost 是比较复杂的，但是效果较好，而 PatchMatch 是可以套用任意局部窗口立体匹配算法的代价函数的，如果要提升速度或者匹配质量都可以从 cost 函数入手。我参考了多份开源代码，关于 PatchMatch 搜索框架 ，似乎没有什么好的更好的解决方案。</description>
     </item>
     
   </channel>

@@ -61,11 +61,6 @@
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/posts/patchmatchstereo/</loc>
-    <lastmod>2019-05-18T14:26:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zkyue.github.io/tags/slam/</loc>
     <lastmod>2019-05-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
@@ -84,6 +79,11 @@
   <url>
     <loc>https://zkyue.github.io/about/</loc>
     <lastmod>2019-03-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/posts/patchmatch-resource/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

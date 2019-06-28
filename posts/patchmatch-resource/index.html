@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="大香蕉"/>
+
+  
+  <meta name="description" content="PatchMatch Resource  PatchMatch Stereo - Stereo Matching with Slanted Support Windows
+ GPU-based Parallelization of a Sub-pixel Highresolution Stereo Matching Algorithm for Highthroughput Biomass Sorghum Phenotyping
+ 《Accurate Image-Guided Stereo Matching With Efficient Matching Cost and Disparity Refinement》(2016)
+ 《PMSC:PatchMatch-Based Superpixel Cut for accurate Stereo Matching》(2018)
+ 《NIPM-sWMF: Towards Efficient FPGA Design for High-Definition Large-Disparity Stereo Matching》(2018)
+ 《Robust Adaptive Normalized cross-Correlation for Stereo Matching Cost computation》(2017)
+ 《Color Image-Guided Boundary-Inconsistent region refinement for Stereo Matching》
+  # cuRAND快速生成大量随机数
+【进度】
+最近尝试了用各种方法对PatchMatch Stereo进行加速，总结如下：
+在输入图片尺寸为427x370，匹配窗口为11x11，迭代次数为3的情况下，在 GTX 1660 Ti 上运行时间由原来的约 385ms 降为约 337ms，这个速度在其他使用 PatchMatch 方法的论文中提到的速度约快100～200ms。
+思考：如何进一步加速？除了更强的 GPU 外，在处理视频流时，可利用前一帧的结果传播到下一帧来加速收敛，如果下一帧能在两次迭代收敛，那么 PatchMatch 的运行时间就变为原来的2/3. PatchMatch Stereo 总的来说是一个 PatchMatch 搜索框架加一个 cost 计算函数，原论文的 cost 是比较复杂的，但是效果较好，而 PatchMatch 是可以套用任意局部窗口立体匹配算法的代价函数的，如果要提升速度或者匹配质量都可以从 cost 函数入手。我参考了多份开源代码，关于 PatchMatch 搜索框架 ，似乎没有什么好的更好的解决方案。"/>
+  
+
+  
+  
+  <meta name="keywords" content="Hugo, theme, zozo"/>
+  
+
+  
+  <link rel="canonical" href="https://zkyue.github.io/posts/patchmatch-resource/"/>
+
+  
+
+  <title> &middot; 大香蕉</title>
+
+  <link rel="shortcut icon" href="https://zkyue.github.io/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/animate.min.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/remixicon.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/zozo.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/highlight.css"/>
+
+  
+  
+</head>
+
+<body>
+<div class="main animated">
+  <div class="nav_container animated fadeInDown">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      
+      <li>
+        <a href="/">首页</a>
+      </li>
+      
+      <li>
+        <a href="/posts/">归档</a>
+      </li>
+      
+      <li>
+        <a href="/tags/">标签</a>
+      </li>
+      
+      <li>
+        <a href="/about/">关于</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+  <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://zkyue.github.io">
+          <span>大香蕉</span>
+          <img src="https://zkyue.github.io/images/logo.svg"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">大香蕉是一个没有感情的代码搬运工</p>
+      <div class="my_socials">
+        
+        
+        <a href="https://github.com/zkyue" title="github" target="_blank"><i class="remixicon-github-fill"></i></a>
+        
+        
+        <a href="https://zkyue.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="content">
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/patchmatch-resource/'></a></h2>
+          <span class="date">0001.01.01</span>
+        </div>
+        <div class="post_content markdown">
+
+<h1 id="patchmatch-resource">PatchMatch Resource</h1>
+
+<ol>
+<li><p><a href="http://www.bmva.org/bmvc/2011/proceedings/paper14/index.html">PatchMatch Stereo - Stereo Matching with Slanted Support Windows</a></p></li>
+
+<li><p><a href="https://pdfs.semanticscholar.org/18e8/996e202f795cb9da3c411111c7ff645c82b3.pdf">GPU-based Parallelization of a Sub-pixel Highresolution Stereo Matching Algorithm for Highthroughput Biomass Sorghum Phenotyping</a></p></li>
+
+<li><p>《Accurate Image-Guided Stereo Matching With Efficient Matching Cost and Disparity Refinement》(2016)</p></li>
+
+<li><p>《PMSC:PatchMatch-Based Superpixel Cut for accurate Stereo Matching》(2018)</p></li>
+
+<li><p>《NIPM-sWMF: Towards Efficient FPGA Design for High-Definition Large-Disparity Stereo Matching》(2018)</p></li>
+
+<li><p>《Robust Adaptive Normalized cross-Correlation for Stereo Matching Cost computation》(2017)</p></li>
+
+<li><p>《Color Image-Guided Boundary-Inconsistent region refinement for Stereo Matching》</p></li>
+</ol>
+
+<p># <a href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=92073444">cuRAND快速生成大量随机数</a></p>
+
+<p>【进度】</p>
+
+<p>最近尝试了用各种方法对PatchMatch Stereo进行加速，总结如下：</p>
+
+<p>在输入图片尺寸为427x370，匹配窗口为11x11，迭代次数为3的情况下，在 GTX 1660 Ti 上运行时间由原来的约 385ms 降为约 337ms，这个速度在其他使用 PatchMatch 方法的论文中提到的速度约快100～200ms。</p>
+
+<p>思考：如何进一步加速？除了更强的 GPU 外，在处理视频流时，可利用前一帧的结果传播到下一帧来加速收敛，如果下一帧能在两次迭代收敛，那么 PatchMatch 的运行时间就变为原来的2/3. PatchMatch Stereo 总的来说是一个 PatchMatch 搜索框架加一个 cost 计算函数，原论文的 cost 是比较复杂的，但是效果较好，而 PatchMatch 是可以套用任意局部窗口立体匹配算法的代价函数的，如果要提升速度或者匹配质量都可以从 cost 函数入手。我参考了多份开源代码，关于 PatchMatch 搜索框架 ，似乎没有什么好的更好的解决方案。</p>
+
+<p>测试过的加速方法及其效果：(太长可不看)</p>
+
+<p><strong>加速方法</strong></p>
+
+<ul>
+<li><strong>更改 cuRandom API 的使用方式</strong></li>
+</ul>
+
+<p>PatchMatch严重依靠随机数生成，在计算过程中有两个流程需要用到随机数。原来的随机数生成使用的参数很慢，代码流程也有问题，我用新的随机数生成方法使随机数的生成比原来快100倍以上，总体上获得了约 40ms的加速，具体请见 <a href="https://wiki.megvii-inc.com/pages/viewpage.action?pageId=92073444">cuRAND快速生成大量随机数</a> 。</p>
+
+<ul>
+<li><strong>将使用 Unified Memory 改为 Global Memory</strong></li>
+</ul>
+
+<p>Unified Memory 可以让程序员对主机内存和 GPU 内存不加区分的使用，简化程序员的工作量，但是在发生主机和GPU数据交换时会带来额外延迟。通过重构把所有代码改成之后获得了只有几毫秒的加速，因为 PatchMatch 在初始化加载数据进 GPU 后到完成计算并没有主机与 GPU的数据交互，此工作带来的影响微弱。</p>
+
+<ul>
+<li><strong>保存权重到 Global Memory</strong></li>
+</ul>
+
+<p>PatchMatch 会反复的计算每个匹配点的cost然后更新cost， cost 的计算需要计算匹配窗口内的每个像素的权重，这个权重是不变的但是会被反复计算，很自然的想到可以把结果保存下来，测试结果运行时间增加了一百多毫秒，原因是权重是一个 image_hight x image_width x window_hight x window_width x sizeof(float) 大小的数组，就测试数据而言，它有几百兆， 以每次4字节大小去频繁的读取带来了很高的内存延迟。</p>
+
+<ul>
+<li><strong>保存梯度到 Global Memory</strong></li>
+</ul>
+
+<p>与权重一样，梯度也是一个在计算过程中保持不变但是在计算过程中多次使用的量，通过将其保存至 Global Memory 的测试表明这个也会引起内存延迟不如重新算得快。</p>
+
+<ul>
+<li><strong>使用 shared Memory</strong></li>
+</ul>
+
+<p>shared Memory 由于是在芯片上的而非远离芯片的内存上，访问速度会比 Global Memory 快一个数量级，但是空间很小，放不下权重和梯度，而且 shared Memory 的生命周期仅限于当前 kernel ，在实现上，只使用一个 kernel 会使代码难以阅读，耗尽函数过长寄存器之后又会带来新的内存延迟。</p>
+
+<p>【下周计划】</p>
+
+<ol>
+<li>关于 PatchMatch 打算告一段落了，因为改进空间似乎有限了。</li>
+<li>下一步的主要工作待和@付哥商量。</li>
+</ol>
+
+<p>【出勤天数】</p>
+
+<ul>
+<li>6天（含上周六）</li>
+</ul>
+</div>
+        <div class="post_footer">
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="powered_by">
+    <a href="https://zeuk.me">Designed by Zeuk,</a>
+    <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+  </div>
+
+  <div class="footer_slogan">
+    <span></span>
+  </div>
+</footer>
+
+
+
+<script src="https://zkyue.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://zkyue.github.io/js/zozo.js"></script>
+<script src="https://zkyue.github.io/js/highlight.pack.js"></script>
+<link  href="https://zkyue.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://zkyue.github.io/js/fancybox.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+
+
+
+</body>
+</html>

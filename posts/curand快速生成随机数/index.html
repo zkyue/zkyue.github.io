@@ -142,7 +142,6 @@ int main()
     dim3 block(BLOCK_W, BLOCK_H, 1);
 	  dim3 grid((COLS + block.x - 1) / block.x, (ROWS + block.y - 1) / block.y, 1);
     random_test&lt;&lt;&lt;grid,block&gt;&gt;&gt;(states, data);
-    cudaDeviceSynchronize();
 
     cv::Mat mat(ROWS, COLS, CV_32FC1);
     cudaMemcpy(mat.data, data, N*sizeof(float),cudaMemcpyDeviceToHost);
@@ -167,7 +166,7 @@ int main()
 <pre><code>void curand_init( unsigned long long seed, unsigned long long sequence, unsigned long long offset, curandState_t* state )
 </code></pre>
 
-<p>这几个参数的意思是将<code>state</code>初始化到经过 $2^{67}*sequence+offset$ 次调用以 seed 为种子的 <code>curand()</code>函数以后的状态 sequence 和 offset 的值决定了<code>curand_init()</code> 的运算量。</p>
+<p>这几个参数的意思是将<code>state</code>初始化到经过 $2^{67}*sequence+offset$ 次调用以 seed 为种子的 <code>curand()</code>函数以后的状态 , sequence 和 offset 的值决定了<code>curand_init()</code> 的运算量。</p>
 
 <p><code>curand_init()</code>在 kernel 里使用需要遵循以下几点：</p>
 
@@ -175,7 +174,7 @@ int main()
 <li><code>curand_init()</code> 会使用较多的寄存器资源和 local memery，最好放在单独的 kernel 中运行以避免系统资源不足产生 global memery IO。</li>
 <li><code>curand_init()</code> 可能会很慢，在使用时可以把经过<code>curand_init()</code> 的 curandState 存放在 global memory 中，用时取回本地，用完放回原位，方便下次使用，上文的代码就对 curandState 进行了回存。</li>
 <li>在单线程程序中，经常会使用系统时间作为随机数发生器的种子，然而在GPU中由于大量线程的并发，仍然使用时间做种子如<code>random_bad()</code> 会使得很多线程的种子是一样的，在结果图片的前两幅所示，每个线程block中产生的随机数为常数。</li>
-<li>为了最大化速度，可以为每个线程使用不同的随机数种子，然后以 0 作为 subsequence 和 offset</li>
+<li>为了最大化速度，可以为每个线程使用不同的随机数种子，然后以 0 作为 subsequence 和 offset,, 但这样生成的随机数不同线程之间会有一定的相关性，如果你的应用要求不苛刻的话这个无疑是最好的选择。</li>
 </ul>
 </div>
         <div class="post_footer">
