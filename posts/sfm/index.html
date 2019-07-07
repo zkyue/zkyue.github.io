@@ -1,97 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<html lang="zh-cn" >
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title>Structure from Motion | Cayman</title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1671.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1"><meta name="generator" content="Hugo 0.55.6" />    <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[\[','\]\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-MathJax.Hub.Queue(function() {
-    
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<style>
-code.has-jax {
-    font: inherit;
-    font-size: 100%;
-    background: inherit;
-    border: inherit;
-    color: #515151;
-}
-</style><span class="Apple-converted-space"> </span></span></p>
-</body>
-</html>
-
-<body>
-  <section class="page-header">
-  <h1 class="project-name">
-    Cayman Hugo Theme
-  </h1>
-  <h2 class="project-tagline">
-    A clean, responsive Hugo theme, ported from the original Jekyll Cayman theme
-  </h2>
-  <nav>
-    
-    
-      
-      
-      
-      
-      <a href="/" class="btn">Blog</a>
-    
-      
-      
-      
-      
-      <a href="/tags/" class="btn">Tags</a>
-    
-      
-      
-      
-      
-      <a href="/about/" class="btn">About</a>
-    
-      
-      
-      
-      
-      <a href="/index.xml" class="btn">RSS</a>
-    
-  </nav>
-</section>
-
-  <section class="main-content">
-    
-  <h1>Structure from Motion</h1>
   
+  <meta name="author"
+        content="大香蕉"/>
+
+  
+  <meta name="description" content="Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。 Formulation Input: $p{ij}=(v{ij},u_{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置 Ou"/>
+  
+
+  
+  
+  <meta name="keywords" content="Hugo, theme, zozo"/>
+  
+
+  
+  <link rel="canonical" href="https://zkyue.github.io/posts/sfm/"/>
+
+  
+
+  <title>Structure from Motion &middot; 大香蕉</title>
+
+  <link rel="shortcut icon" href="https://zkyue.github.io/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/animate.min.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/remixicon.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/zozo.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/highlight.css"/>
+
+  
+  
+</head>
+
+<body>
+<div class="main animated">
+  <div class="nav_container animated fadeInDown">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      
+      <li>
+        <a href="/">首页</a>
+      </li>
+      
+      <li>
+        <a href="/posts/">归档</a>
+      </li>
+      
+      <li>
+        <a href="/tags/">标签</a>
+      </li>
+      
+      <li>
+        <a href="/about/">关于</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+  <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://zkyue.github.io">
+          <span>大香蕉</span>
+          <img src="https://zkyue.github.io/images/logo.svg"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">大香蕉是一个没有感情的代码搬运工</p>
+      <div class="my_socials">
+        
+        
+        <a href="https://github.com/zkyue" title="github" target="_blank"><i class="remixicon-github-fill"></i></a>
+        
+        
+        <a href="https://zkyue.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="content">
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/sfm/'>Structure from Motion</a></h2>
+          <span class="date">2019.07.07</span>
+        </div>
+        <div class="post_content markdown">
 
 <p>Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。</p>
 
@@ -182,24 +186,90 @@ $$
 (H+\lambda I)\Delta=-b
 $$
 通过控制  $\lambda$ 的大小来决定迭代时主要是梯度下降或 Gauss‐Newton 在起作用，比较迭代前后 cost 的大小可以知道当前的   $\lambda$ 大小是否合适。</p>
+</div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
+                <i class="remixicon-stack-line"></i>
+                
+                <a href="https://zkyue.github.io/tags/sfm/">SFM</a>
+                
+                <a href="https://zkyue.github.io/tags/bundle-ajustment/">Bundle Ajustment</a>
+                
+              </span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="powered_by">
+    <a href="https://zeuk.me">Designed by Zeuk,</a>
+    <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+  </div>
 
-
-    <footer class="site-footer">
-  <span class="site-footer-credits">
-    Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. Deployed to <a href="https://www.netlify.com/">Netlify</a>.
-  </span>
+  <div class="footer_slogan">
+    <span></span>
+  </div>
 </footer>
 
-  </section>
-  
-  
-  <script>
-  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-  ga('create', 'UA-123456789-1', 'auto');
-  ga('send', 'pageview');
-  </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
-  
+
+
+<script src="https://zkyue.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://zkyue.github.io/js/zozo.js"></script>
+<script src="https://zkyue.github.io/js/highlight.pack.js"></script>
+<link  href="https://zkyue.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://zkyue.github.io/js/fancybox.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+
+
 
 </body>
 </html>

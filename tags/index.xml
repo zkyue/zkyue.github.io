@@ -1,76 +1,76 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Cayman</title>
-    <link>https://example.com/tags/</link>
-    <description>Recent content in Tags on Cayman</description>
+    <title>Tags on 大香蕉</title>
+    <link>https://zkyue.github.io/tags/</link>
+    <description>Recent content in Tags on 大香蕉</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <lastBuildDate>Sun, 07 Jul 2019 14:26:00 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zkyue.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bundle Ajustment</title>
-      <link>https://example.com/tags/bundle-ajustment/</link>
+      <link>https://zkyue.github.io/tags/bundle-ajustment/</link>
       <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/tags/bundle-ajustment/</guid>
+      <guid>https://zkyue.github.io/tags/bundle-ajustment/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SFM</title>
-      <link>https://example.com/tags/sfm/</link>
+      <link>https://zkyue.github.io/tags/sfm/</link>
       <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/tags/sfm/</guid>
+      <guid>https://zkyue.github.io/tags/sfm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CUDA</title>
-      <link>https://example.com/tags/cuda/</link>
+      <link>https://zkyue.github.io/tags/cuda/</link>
       <pubDate>Tue, 18 Jun 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/tags/cuda/</guid>
+      <guid>https://zkyue.github.io/tags/cuda/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cuRAND</title>
-      <link>https://example.com/tags/curand/</link>
+      <link>https://zkyue.github.io/tags/curand/</link>
       <pubDate>Tue, 18 Jun 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/tags/curand/</guid>
+      <guid>https://zkyue.github.io/tags/curand/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nvprof</title>
-      <link>https://example.com/tags/nvprof/</link>
+      <link>https://zkyue.github.io/tags/nvprof/</link>
       <pubDate>Mon, 03 Jun 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/tags/nvprof/</guid>
+      <guid>https://zkyue.github.io/tags/nvprof/</guid>
       <description></description>
     </item>
     
     <item>
       <title>3D Reconstruction</title>
-      <link>https://example.com/tags/3d-reconstruction/</link>
+      <link>https://zkyue.github.io/tags/3d-reconstruction/</link>
       <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/tags/3d-reconstruction/</guid>
+      <guid>https://zkyue.github.io/tags/3d-reconstruction/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Paper Reading</title>
-      <link>https://example.com/tags/paper-reading/</link>
+      <link>https://zkyue.github.io/tags/paper-reading/</link>
       <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/tags/paper-reading/</guid>
+      <guid>https://zkyue.github.io/tags/paper-reading/</guid>
       <description></description>
     </item>
     

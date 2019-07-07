@@ -1,70 +1,50 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Cayman</title>
-    <link>https://example.com/posts/</link>
-    <description>Recent content in Posts on Cayman</description>
+    <title>Posts on 大香蕉</title>
+    <link>https://zkyue.github.io/posts/</link>
+    <description>Recent content in Posts on 大香蕉</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <lastBuildDate>Sun, 07 Jul 2019 14:26:00 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zkyue.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Structure from Motion</title>
-      <link>https://example.com/posts/sfm/</link>
+      <link>https://zkyue.github.io/posts/sfm/</link>
       <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/posts/sfm/</guid>
-      <description>Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。
-Formulation Input: $p{ij}=(v{ij},u_{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置
-Output：
- $X_i$, 对应点$p_i$ 的三维坐标 $R_j, t_j$, 第 $ j$ 个相机的旋转和平移  Cost： $$ g(X,R,T)=\sum{i=1}^m\sum{j=1}^m\begin{Vmatrix} P(X_i,R_j,tj)- \left[\begin{matrix} u{i,j} v_{i,j} \end{matrix}\right] \end{Vmatrix} ^2 \tag{1} $$
-Bundle Adjustment 对上面的 Cost 函数进行优化叫做 Bundle Adjustment， 取自对通过一个点的一捆光线进行调整之意，一个很 intuitive 的名字。
-Bundle Adjustment 一般采用 Levenberg‐Marquardt 进行优化，它是 Gauss‐Newton 的改进版。
-Gauss‐Newton Gauss‐Newton 可以解决任意的非线性优化问题，工作过程如下：
- 对待优化函数取一阶近似：  $$ f(P_i+\Delta)\approx f(P_i)+J\Delta $$
- 最小化该一阶近似：  $$ \Delta=\mathop{\arg\min}\ \ | f(P_i)+J\Delta|^2 $$</description>
+      <guid>https://zkyue.github.io/posts/sfm/</guid>
+      <description>Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。 Formulation Input: $p{ij}=(v{ij},u_{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置 Ou</description>
     </item>
     
     <item>
       <title>cuRAND快速生成大量随机数</title>
-      <link>https://example.com/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</link>
+      <link>https://zkyue.github.io/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</link>
       <pubDate>Tue, 18 Jun 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</guid>
-      <description>在一些算法中，快速生成大量伪随机数显得尤为重要。cuRAND 提供了在 host 端调用 device 端一次生成大量随机数储存在 device 端的 global 内存中和在 device 端调用一次产生单个随机数共 device 代码即时使用两种 API 。而后者使用不当可能会造成几个数量级的性能差距和效果差距，本文将主要对此进行分析。
-在下面的代码中，我使用了不同的参数方式来生成了一些随机数，然后使用 nvprof 来对它们的性能做了比较, 并且把随机结果用OpenCV 可视化出来。
-#include &amp;lt;curand_kernel.h&amp;gt;#include &amp;lt;opencv2/opencv.hpp&amp;gt; #define COLS 400 #define ROWS 300 #define N (COLS*ROWS)  __global__ void random_test(curandState *states, float *data_f) { int x = blockIdx.x * blockDim.x + threadIdx.x; int y = blockIdx.y * blockDim.y + threadIdx.y; if(x &amp;gt;= COLS) return; if(y &amp;gt;= ROWS)return; const int tid = y * COLS + x; curandState state = states[tid]; //curand_init(clock64(), 0, 0, &amp;amp;state);  //curand_init(clock64(), pt.</description>
+      <guid>https://zkyue.github.io/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</guid>
+      <description>在一些算法中，快速生成大量伪随机数显得尤为重要。cuRAND 提供了在 host 端调用 device 端一次生成大量随机数储存在 device 端的 global 内存中和在 device 端调用一次产生单个随机数共 device 代码即时使用两种 API 。而后者使用不当可能会造成几个</description>
     </item>
     
     <item>
       <title>使用 nvprof 来检测 CUDA 程序运行效率</title>
-      <link>https://example.com/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</link>
+      <link>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</link>
       <pubDate>Mon, 03 Jun 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</guid>
-      <description>nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。
-#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;curand_kernel.h&amp;gt;__global__ void hello() { printf(&amp;#34;Hello CUDA!\n&amp;#34;); } int main() { cudaFree(0); hello&amp;lt;&amp;lt;&amp;lt;1,10&amp;gt;&amp;gt;&amp;gt;(); cudaDeviceReset(); return 0; }  我们编译然后使用 nvprof 运行可以得到如下结果：
-nvprof 会别类分门统计出一个详尽的结果，这里面需要注意的点有：
- nvprof 在 Nvidia Driver 418 以后的版本中使用受到限制，报错为&amp;rdquo;Waining：The user does not have permission to profile on the target device.&amp;ldquo;，我按照官网的操作不 work，最后在知乎找到的解决方案，备份如下：   CUDA 启动和释放运行环境都需要时间，这个会算在程序调用的 CUDA API 的第一个和最后一个头上，如果你调用的第一个函数是 cudaMalloc() 你可能会觉得内存分配怎么会这么慢！我这里用 cudaFree(0)和 cudaDeviceReset() 来为这两个时间背锅,可以看到它们的耗时都在几十上百毫秒的级别。 如果你需要在 kernel 函数中打印输出，直接调用 kernel 函数是没有效果的，可以在程序末尾调用cudaDeviceReset()或cudaDeviceSynchronize()来达到设备同步。  </description>
+      <guid>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</guid>
+      <description>nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curand_kernel.h&amp;gt; __global__ void hello() { printf(&amp;quot;Hello CUDA!\n&amp;quot;); } int main() { cudaFree(0); hello&amp;lt;&amp;lt;&amp;lt;1,10&amp;gt;&amp;gt;&amp;gt;(); cudaDeviceReset(); return 0; } 我们编</description>
     </item>
     
     <item>
       <title>双目立体视觉 with PatchMatch</title>
-      <link>https://example.com/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</link>
+      <link>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</link>
       <pubDate>Sat, 18 May 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</guid>
-      <description>Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。
-一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&amp;rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心之间的距离，$f$ 是焦距，则物体 $\rm X$ 的深度 $\rm Z$ 可以通过它在左右相机图像中成像点横坐标 $x$ 和 $x&amp;rsquo;$ 之差，即视差，和 $\rm B$、$f$ 求得。视差和深度的转换关系并不那么一目了然，具体的推导可以参见这里。
-在双目立体视觉系统中，$f$ 和 $\rm B$ 可以通过相机标定比较准确地求得，而求视差的问题可以转化为求 $ X$ 在另一幅图像中的对应点 $ X&amp;rsquo;$ 的问题，也就是本文的主角 —— 立体匹配。
-可以看到上面求视差的过程有一个前提，$ X$ 和 $ X&amp;rsquo;$ 必须在图像的同一行上，这个我们可以通 Stereo Rectification 来达成。
-Method 现在来明确一下立体匹配问题，输入是两幅经过 Stereo Rectification 的图像，输出是每个像素点的视差，任务是以一幅图像像素点为参考，在另一幅图像的同一行中搜索与之匹配的点。
-一个最基本的方法是比较两个像素点的绝对值差异然后取值最小的点为匹配点，但是由于图像噪声和相邻像素点的近似性这个方法基本不可用。为了增加它的鲁棒性，可以用一个窗口内的像素去做对比而非单个像素，这时用窗口内所有像素的绝对值差之和或者绝对值差的平方和等方法来度量两个窗口的匹配代价，选取代价的作为匹配点，这就是最原始的立体匹配算法了。
-Experiment 立体匹配算法经过多年发展有了很多不同的实现，但其基本的套路始终是寻找合适的代价函数计算匹配点之间的匹配代价以及如何减小匹配代价这两个方面。这里以 OpenCV 中的各种算法为例，来展示一下立体匹配的效果。截止 OpenCV 4.1，其中实现了8种立体匹配算法。以下结果为视差图，视差图的每个像素点的灰度值即代表该点的视差，为了增强图像对比度，这里对视差乘了3再做显示。
-以上测试的输入为两张 427x370 分辨率的左右左右图像，CPU 和 GPU 环境分别为 i5-7400@3.00GHz x 4 和 GTX 1660 Ti。可以看到 OpenCV 的算法运行时间均在毫秒级别，在 CPU下可以选择 StereoSGBM，GPU下可以选择 StereoConstantSpaceBP 以达到不错的效果和运行时间的平衡。测试的源码及数据在这里可以找到。</description>
+      <guid>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</guid>
+      <description>Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&amp;rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心之间的距离，$f$ 是焦距，则物体 $\rm X$ 的深度</description>
     </item>
     
   </channel>

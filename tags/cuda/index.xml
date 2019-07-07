@@ -1,37 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CUDA on Cayman</title>
-    <link>https://example.com/tags/cuda/</link>
-    <description>Recent content in CUDA on Cayman</description>
+    <title>CUDA on 大香蕉</title>
+    <link>https://zkyue.github.io/tags/cuda/</link>
+    <description>Recent content in CUDA on 大香蕉</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     <lastBuildDate>Tue, 18 Jun 2019 14:26:00 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/cuda/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zkyue.github.io/tags/cuda/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>cuRAND快速生成大量随机数</title>
-      <link>https://example.com/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</link>
+      <link>https://zkyue.github.io/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</link>
       <pubDate>Tue, 18 Jun 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</guid>
-      <description>在一些算法中，快速生成大量伪随机数显得尤为重要。cuRAND 提供了在 host 端调用 device 端一次生成大量随机数储存在 device 端的 global 内存中和在 device 端调用一次产生单个随机数共 device 代码即时使用两种 API 。而后者使用不当可能会造成几个数量级的性能差距和效果差距，本文将主要对此进行分析。
-在下面的代码中，我使用了不同的参数方式来生成了一些随机数，然后使用 nvprof 来对它们的性能做了比较, 并且把随机结果用OpenCV 可视化出来。
-#include &amp;lt;curand_kernel.h&amp;gt;#include &amp;lt;opencv2/opencv.hpp&amp;gt; #define COLS 400 #define ROWS 300 #define N (COLS*ROWS)  __global__ void random_test(curandState *states, float *data_f) { int x = blockIdx.x * blockDim.x + threadIdx.x; int y = blockIdx.y * blockDim.y + threadIdx.y; if(x &amp;gt;= COLS) return; if(y &amp;gt;= ROWS)return; const int tid = y * COLS + x; curandState state = states[tid]; //curand_init(clock64(), 0, 0, &amp;amp;state);  //curand_init(clock64(), pt.</description>
+      <guid>https://zkyue.github.io/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</guid>
+      <description>在一些算法中，快速生成大量伪随机数显得尤为重要。cuRAND 提供了在 host 端调用 device 端一次生成大量随机数储存在 device 端的 global 内存中和在 device 端调用一次产生单个随机数共 device 代码即时使用两种 API 。而后者使用不当可能会造成几个</description>
     </item>
     
     <item>
       <title>使用 nvprof 来检测 CUDA 程序运行效率</title>
-      <link>https://example.com/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</link>
+      <link>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</link>
       <pubDate>Mon, 03 Jun 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://example.com/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</guid>
-      <description>nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。
-#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;curand_kernel.h&amp;gt;__global__ void hello() { printf(&amp;#34;Hello CUDA!\n&amp;#34;); } int main() { cudaFree(0); hello&amp;lt;&amp;lt;&amp;lt;1,10&amp;gt;&amp;gt;&amp;gt;(); cudaDeviceReset(); return 0; }  我们编译然后使用 nvprof 运行可以得到如下结果：
-nvprof 会别类分门统计出一个详尽的结果，这里面需要注意的点有：
- nvprof 在 Nvidia Driver 418 以后的版本中使用受到限制，报错为&amp;rdquo;Waining：The user does not have permission to profile on the target device.&amp;ldquo;，我按照官网的操作不 work，最后在知乎找到的解决方案，备份如下：   CUDA 启动和释放运行环境都需要时间，这个会算在程序调用的 CUDA API 的第一个和最后一个头上，如果你调用的第一个函数是 cudaMalloc() 你可能会觉得内存分配怎么会这么慢！我这里用 cudaFree(0)和 cudaDeviceReset() 来为这两个时间背锅,可以看到它们的耗时都在几十上百毫秒的级别。 如果你需要在 kernel 函数中打印输出，直接调用 kernel 函数是没有效果的，可以在程序末尾调用cudaDeviceReset()或cudaDeviceSynchronize()来达到设备同步。  </description>
+      <guid>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</guid>
+      <description>nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curand_kernel.h&amp;gt; __global__ void hello() { printf(&amp;quot;Hello CUDA!\n&amp;quot;); } int main() { cudaFree(0); hello&amp;lt;&amp;lt;&amp;lt;1,10&amp;gt;&amp;gt;&amp;gt;(); cudaDeviceReset(); return 0; } 我们编</description>
     </item>
     
   </channel>

@@ -3,88 +3,93 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/tags/bundle-ajustment/</loc>
+    <loc>https://zkyue.github.io/tags/bundle-ajustment/</loc>
     <lastmod>2019-07-07T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://zkyue.github.io/posts/</loc>
     <lastmod>2019-07-07T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/posts/</loc>
+    <loc>https://zkyue.github.io/tags/sfm/</loc>
     <lastmod>2019-07-07T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/tags/sfm/</loc>
+    <loc>https://zkyue.github.io/posts/sfm/</loc>
+    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/tags/</loc>
     <lastmod>2019-07-07T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/posts/sfm/</loc>
-    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://zkyue.github.io/</loc>
     <lastmod>2019-07-07T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/tags/cuda/</loc>
+    <loc>https://zkyue.github.io/tags/cuda/</loc>
     <lastmod>2019-06-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/tags/curand/</loc>
+    <loc>https://zkyue.github.io/tags/curand/</loc>
     <lastmod>2019-06-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</loc>
+    <loc>https://zkyue.github.io/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</loc>
     <lastmod>2019-06-18T14:26:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/nvprof/</loc>
+    <loc>https://zkyue.github.io/tags/nvprof/</loc>
     <lastmod>2019-06-03T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</loc>
+    <loc>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</loc>
     <lastmod>2019-06-03T14:26:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/3d-reconstruction/</loc>
+    <loc>https://zkyue.github.io/tags/3d-reconstruction/</loc>
     <lastmod>2019-05-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/tags/paper-reading/</loc>
+    <loc>https://zkyue.github.io/tags/paper-reading/</loc>
     <lastmod>2019-05-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</loc>
+    <loc>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</loc>
     <lastmod>2019-05-18T14:26:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://zkyue.github.io/about/</loc>
     <lastmod>2019-03-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/categories/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>
