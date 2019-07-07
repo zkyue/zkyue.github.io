@@ -6,10 +6,19 @@
     <description>Recent content on 大香蕉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 18 Jun 2019 14:26:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jul 2019 14:26:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zkyue.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Structure from Motion</title>
+      <link>https://zkyue.github.io/posts/structure-from-motion/</link>
+      <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
+      
+      <guid>https://zkyue.github.io/posts/structure-from-motion/</guid>
+      <description>&amp;quot;Structure from Motion&amp;quot;html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: &#34;Lucida Console&#34;,Consolas,&#34;Courier&#34;,monospace; } html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: &#34;Helvetica Neue&#34;, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; } body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; } iframe { margin: auto; } a.url { word-break: break-all; } a:active, a:hover { outline: 0px; } .in-text-selection, ::selection { text-shadow: none;</description>
+    </item>
     
     <item>
       <title>cuRAND快速生成大量随机数</title>
@@ -48,15 +57,6 @@
 Hugo makes use of a variety of open source projects including:
  https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
 Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://zkyue.github.io/posts/structure-from-motion/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/posts/structure-from-motion/</guid>
-      <description>title: &#34;Structure from Motion&#34; date: 2019-07-07T14:26:00+08:00 draft: false tags: [&#34;SFM&#34;,&#34;Bundle Ajustment&#34;]   &amp;quot;Structure from Motion&amp;quot;html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: &#34;Lucida Console&#34;,Consolas,&#34;Courier&#34;,monospace; } html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: &#34;Helvetica Neue&#34;, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; } body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; } iframe { margin: auto; } a.url { word-break: break-all; } a:active, a:hover { outline: 0px; } .</description>
     </item>
     
     <item>

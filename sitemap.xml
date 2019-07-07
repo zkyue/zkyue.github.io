@@ -3,19 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://zkyue.github.io/tags/cuda/</loc>
-    <lastmod>2019-06-18T14:26:00+08:00</lastmod>
+    <loc>https://zkyue.github.io/tags/bundle-ajustment/</loc>
+    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://zkyue.github.io/posts/</loc>
-    <lastmod>2019-06-18T14:26:00+08:00</lastmod>
+    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://zkyue.github.io/tags/sfm/</loc>
+    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/posts/structure-from-motion/</loc>
+    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://zkyue.github.io/tags/</loc>
+    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/</loc>
+    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zkyue.github.io/tags/cuda/</loc>
     <lastmod>2019-06-18T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -29,12 +52,6 @@
   <url>
     <loc>https://zkyue.github.io/posts/curand%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</loc>
     <lastmod>2019-06-18T14:26:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zkyue.github.io/</loc>
-    <lastmod>2019-06-18T14:26:00+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -68,11 +85,6 @@
   <url>
     <loc>https://zkyue.github.io/about/</loc>
     <lastmod>2019-03-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zkyue.github.io/posts/structure-from-motion/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
