@@ -15,18 +15,24 @@
   </url>
   
   <url>
+    <loc>https://zkyue.github.io/raw/</loc>
+    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://zkyue.github.io/tags/sfm/</loc>
     <lastmod>2019-07-07T14:26:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/posts/sfm/</loc>
+    <loc>https://zkyue.github.io/posts/structure-from-motion/</loc>
     <lastmod>2019-07-07T14:26:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/posts/sfm/</loc>
+    <loc>https://zkyue.github.io/raw/sfm/</loc>
     <lastmod>2019-07-07T14:26:00+08:00</lastmod>
   </url>
   

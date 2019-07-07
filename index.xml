@@ -13,19 +13,19 @@
     
     <item>
       <title>Structure from Motion</title>
-      <link>https://zkyue.github.io/posts/sfm/</link>
+      <link>https://zkyue.github.io/posts/structure-from-motion/</link>
       <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://zkyue.github.io/posts/sfm/</guid>
-      <description>&amp;quot;Structure from Motion&amp;quot; Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。 Formulation Input: p_{ij}=(v_{ij},u_{ij}) 第 i 个对应点在第 j 张图片的位</description>
+      <guid>https://zkyue.github.io/posts/structure-from-motion/</guid>
+      <description>&amp;quot;Structure from Motion&amp;quot;html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: &#34;Lucida Console&#34;,Consolas,&#34;Courier&#34;,monospace; } html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: &#34;Helvetica Neue&#34;, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; } body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; } iframe { margin: auto; } a.url { word-break: break-all; } a:active, a:hover { outline: 0px; } .in-text-selection, ::selection { text-shadow: none;</description>
     </item>
     
     <item>
       <title>Structure from Motion</title>
-      <link>https://zkyue.github.io/posts/sfm/</link>
+      <link>https://zkyue.github.io/raw/sfm/</link>
       <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
       
-      <guid>https://zkyue.github.io/posts/sfm/</guid>
+      <guid>https://zkyue.github.io/raw/sfm/</guid>
       <description>Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。 Formulation Input: $p{ij}=(v{ij},u_{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置 Ou</description>
     </item>
     
@@ -44,7 +44,7 @@
       <pubDate>Mon, 03 Jun 2019 14:26:00 +0800</pubDate>
       
       <guid>https://zkyue.github.io/posts/%E4%BD%BF%E7%94%A8nvprof%E6%9D%A5%E6%A3%80%E6%B5%8Bcuda%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%95%88%E7%8E%87/</guid>
-      <description>nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curand_kernel.h&amp;gt; __global__ void hello() { printf(&amp;quot;Hello CUDA!\n&amp;quot;); } int main() { cudaFree(0); hello&amp;lt;&amp;lt;&amp;lt;1,10&amp;gt;&amp;gt;&amp;gt;(); cudaDeviceReset(); return 0; } 我们编</description>
+      <description>nvprof 是 CUDA Toolkit 自带的 CUDA 程序运行效率分析工具。它可以生成 kernel 函数和 CUDA API 运行时间报表，肥肠好用！有了它你再也不用调系统的时间函数把代码搞得乱七八糟的了。下面请看示例。 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;curand_kernel.h&amp;gt; __global__ void hello() { printf(&amp;quot;Hello CUDA!\n&amp;quot;); } int main() { cudaFree(0); hello&amp;lt;&amp;lt;&amp;lt;1,10&amp;gt;&amp;gt;&amp;gt;(); cudaDeviceReset(); return 0; } 编译然</description>
     </item>
     
     <item>
