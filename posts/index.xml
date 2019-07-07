@@ -6,19 +6,10 @@
     <description>Recent content in Posts on 大香蕉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 07 Jul 2019 14:26:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2019 14:26:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zkyue.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Structure from Motion</title>
-      <link>https://zkyue.github.io/posts/structure-from-motion/</link>
-      <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
-      
-      <guid>https://zkyue.github.io/posts/structure-from-motion/</guid>
-      <description>&amp;quot;Structure from Motion&amp;quot;html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: &#34;Lucida Console&#34;,Consolas,&#34;Courier&#34;,monospace; } html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: &#34;Helvetica Neue&#34;, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; } body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; } iframe { margin: auto; } a.url { word-break: break-all; } a:active, a:hover { outline: 0px; } .in-text-selection, ::selection { text-shadow: none;</description>
-    </item>
     
     <item>
       <title>cuRAND快速生成大量随机数</title>
@@ -45,6 +36,15 @@
       
       <guid>https://zkyue.github.io/posts/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E8%A7%86%E8%A7%89patchmatch/</guid>
       <description>Introduction 通过模仿人的两只眼睛如何估计深度，我们有了双目立体视觉系统。 一个双目立体视觉系统的结构如上图所示，$\rm O$ 和 $\rm O&amp;rsquo;$ 是两个相机的投影中心，$\rm B$ 是投影中心之间的距离，$f$ 是焦距，则物体 $\rm X$ 的深度</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zkyue.github.io/posts/structure-from-motion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zkyue.github.io/posts/structure-from-motion/</guid>
+      <description>title: &#34;Structure from Motion&#34; date: 2019-07-07T14:26:00+08:00 draft: false tags: [&#34;SFM&#34;,&#34;Bundle Ajustment&#34;]   &amp;quot;Structure from Motion&amp;quot;html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: &#34;Lucida Console&#34;,Consolas,&#34;Courier&#34;,monospace; } html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: &#34;Helvetica Neue&#34;, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; } body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; } iframe { margin: auto; } a.url { word-break: break-all; } a:active, a:hover { outline: 0px; } .</description>
     </item>
     
   </channel>
