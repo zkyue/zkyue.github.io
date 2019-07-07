@@ -17,7 +17,7 @@
       <pubDate>Sun, 07 Jul 2019 15:26:00 +0800</pubDate>
       
       <guid>https://zkyue.github.io/posts/test/</guid>
-      <description>Input: $p{ij}=(v{ij},u{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置 $$ p{ij}=(v{ij},u{ij}) $$</description>
+      <description>Input: $p\{ij}=(v{ij},u{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置 $$ p{ij}=(v{ij},u{ij}) $$ N = ($n_1$, $n_2$, $n_3)^{\rm T}$</description>
     </item>
     
     <item>
