@@ -88,12 +88,13 @@
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/categories/</loc>
+    <loc>https://zkyue.github.io/posts/sfm/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://zkyue.github.io/posts/sfm/</loc>
+    <loc>https://zkyue.github.io/categories/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>
