@@ -6,19 +6,10 @@
     <description>Recent content on 大香蕉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 07 Jul 2019 15:26:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jul 2019 14:26:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zkyue.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>test</title>
-      <link>https://zkyue.github.io/posts/test/</link>
-      <pubDate>Sun, 07 Jul 2019 15:26:00 +0800</pubDate>
-      
-      <guid>https://zkyue.github.io/posts/test/</guid>
-      <description>Input: $p\{ij}=(v{ij} u{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置 $$ p{ij}=(v{ij},u{ij}) $$ N = ($n_1$, $n_2$, $n_3)^{\rm T}$ $$ evidence_{i}=\sum_{j}W_{ij}x_{j}+b_{i} $$ $p(x|y) = \frac{p(y|x)p(x)}{p(y)}$, (p(x|y) = \frac{p(y|x)p(x)}{p(y)}). $$ E(\mathbf{v}, \mathbf{h}) = -\sum{i,j}w{ij}v_i h_j - \sum_i b_i v_i - \sum_j c_j h_j $$ \[3 &amp;lt; 4\] \begin{align} p(v_i=1|\mathbf{h}) &amp;amp; = \sigma\left(\sumj w{ij}h_j + b_i\right) p(h_j=1|\mathbf{v}) &amp;amp; = \sigma\left(\sumi w{ij}v_i + c_j\right) \end{align}</description>
-    </item>
     
     <item>
       <title>Structure from Motion</title>
@@ -66,6 +57,15 @@
 Hugo makes use of a variety of open source projects including:
  https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
 Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.</description>
+    </item>
+    
+    <item>
+      <title>SFM</title>
+      <link>https://zkyue.github.io/posts/sfm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zkyue.github.io/posts/sfm/</guid>
+      <description>&amp;quot;Structure from Motion&amp;quot;html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: &#34;Lucida Console&#34;,Consolas,&#34;Courier&#34;,monospace; } html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: &#34;Helvetica Neue&#34;, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; } body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; } iframe { margin: auto; } a.url { word-break: break-all; } a:active, a:hover { outline: 0px; } .in-text-selection, ::selection { text-shadow: none;</description>
     </item>
     
   </channel>

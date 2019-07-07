@@ -6,19 +6,10 @@
     <description>Recent content in Bundle Ajustment on 大香蕉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 07 Jul 2019 15:26:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jul 2019 14:26:00 +0800</lastBuildDate>
     
 	<atom:link href="https://zkyue.github.io/tags/bundle-ajustment/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>test</title>
-      <link>https://zkyue.github.io/posts/test/</link>
-      <pubDate>Sun, 07 Jul 2019 15:26:00 +0800</pubDate>
-      
-      <guid>https://zkyue.github.io/posts/test/</guid>
-      <description>Input: $p\{ij}=(v{ij} u{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置 $$ p{ij}=(v{ij},u{ij}) $$ N = ($n_1$, $n_2$, $n_3)^{\rm T}$ $$ evidence_{i}=\sum_{j}W_{ij}x_{j}+b_{i} $$ $p(x|y) = \frac{p(y|x)p(x)}{p(y)}$, (p(x|y) = \frac{p(y|x)p(x)}{p(y)}). $$ E(\mathbf{v}, \mathbf{h}) = -\sum{i,j}w{ij}v_i h_j - \sum_i b_i v_i - \sum_j c_j h_j $$ \[3 &amp;lt; 4\] \begin{align} p(v_i=1|\mathbf{h}) &amp;amp; = \sigma\left(\sumj w{ij}h_j + b_i\right) p(h_j=1|\mathbf{v}) &amp;amp; = \sigma\left(\sumi w{ij}v_i + c_j\right) \end{align}</description>
-    </item>
     
     <item>
       <title>Structure from Motion</title>
