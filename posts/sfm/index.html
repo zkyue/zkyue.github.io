@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="大香蕉"/>
+
+  
+  <meta name="description" content="title: &amp;quot;SFM&amp;quot; date: 2019-07-07T14:26:00&#43;08:00 draft: false tags: [&amp;quot;SFM&amp;quot;,&amp;quot;Bundle Ajustment&amp;quot;]  Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。
+Formulation Input: $p{ij}=(v{ij},u_{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置
+Output：
+ $X_i$, 对应点$p_i$ 的三维坐标 $R_j, t_j$, 第 $ j$ 个相机的旋转和平移  Cost： $$ g(X,R,T)=\sum{i=1}^m\sum{j=1}^m\begin{Vmatrix} P(X_i,R_j,tj)- \left[\begin{matrix} u{i,j} v_{i,j} \end{matrix}\right] \end{Vmatrix} ^2 \tag{1} $$
+Bundle Adjustment 对上面的 Cost 函数进行优化叫做 Bundle Adjustment， 取自对通过一个点的一捆光线进行调整之意，一个很 intuitive 的名字。
+Bundle Adjustment 一般采用 Levenberg‐Marquardt 进行优化，它是 Gauss‐Newton 的改进版。
+Gauss‐Newton Gauss‐Newton 可以解决任意的非线性优化问题，工作过程如下：
+ 对待优化函数取一阶近似：  $$ f(P_i&#43;\Delta)\approx f(P_i)&#43;J\Delta $$
+ 最小化该一阶近似：  $$ \Delta=\mathop{\arg\min}\ \ | f(P_i)&#43;J\Delta|^2 $$
+ 迭代升级直到收敛：  $$ P_{i&#43;1}=P_i&#43;\Delta $$
+Apply Gauss‐Newton to BA 将（1）式改写为： $$ f(P)=g(X,R,T)=\sum{i,j}e{ij}^2(X,R,T) $$ 线性近似得： $$ f(P0)=\sum{ij}(e_{ij}(P0)&#43;J{ij}\Delta)^2\approx c&#43;2b^T\Delta&#43;\Delta^TH\Delta \tag{2} $$ 其中： $$ b^T=\sum{ij}e^T{ij}J{ij}\ , H=\sum{ij}J{ij}^TJ{ij} $$ 最小化（2）式： $$ H\Delta=-b \tag{3} $$ 迭代： $$ P\leftarrow P&#43;\Delta $$"/>
+  
+
+  
+  
+  <meta name="keywords" content="Hugo, theme, zozo"/>
+  
+
+  
+  <link rel="canonical" href="https://zkyue.github.io/posts/sfm/"/>
+
+  
+
+  <title> &middot; 大香蕉</title>
+
+  <link rel="shortcut icon" href="https://zkyue.github.io/images/favicon.ico"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/animate.min.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/remixicon.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/zozo.css"/>
+  <link rel="stylesheet" href="https://zkyue.github.io/css/highlight.css"/>
+
+  
+  
+</head>
+
+<body>
+<div class="main animated">
+  <div class="nav_container animated fadeInDown">
+  <div class="site_nav" id="site_nav">
+    <ul>
+      
+      <li>
+        <a href="/">首页</a>
+      </li>
+      
+      <li>
+        <a href="/posts/">归档</a>
+      </li>
+      
+      <li>
+        <a href="/tags/">标签</a>
+      </li>
+      
+      <li>
+        <a href="/about/">关于</a>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="menu_icon">
+    <a id="menu_icon"><i class="remixicon-links-line"></i></a>
+  </div>
+</div>
+
+  <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://zkyue.github.io">
+          <span>大香蕉</span>
+          <img src="https://zkyue.github.io/images/logo.svg"/>
+        </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">大香蕉是一个没有感情的代码搬运工</p>
+      <div class="my_socials">
+        
+        
+        <a href="https://github.com/zkyue" title="github" target="_blank"><i class="remixicon-github-fill"></i></a>
+        
+        
+        <a href="https://zkyue.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="content">
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/posts/sfm/'></a></h2>
+          <span class="date">0001.01.01</span>
+        </div>
+        <div class="post_content markdown">
+
+<pre><code>title: &quot;SFM&quot;
+date: 2019-07-07T14:26:00+08:00
+draft: false
+tags: [&quot;SFM&quot;,&quot;Bundle Ajustment&quot;]
+</code></pre>
+
+<p>Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。</p>
+
+<p><img src="https://github.com/zkyue/Picturefloor/raw/master/sfm.jpg" alt="sfm" /></p>
+
+<h4 id="formulation">Formulation</h4>
+
+<p>Input:  $p<em>{ij}=(v</em>{ij},u_{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置</p>
+
+<p>Output：</p>
+
+<ul>
+<li>$X_i$, 对应点$p_i$ 的三维坐标</li>
+<li>$R_j, t_j$,  第 $ j$ 个相机的旋转和平移</li>
+</ul>
+
+<p>Cost：
+$$
+g(X,R,T)=\sum<em>{i=1}^m\sum</em>{j=1}^m\begin{Vmatrix} P(X_i,R_j,t<em>j)- \left[\begin{matrix}
+   u</em>{i,j} <br />
+   v_{i,j}
+  \end{matrix}\right]   \end{Vmatrix}   ^2 \tag{1}
+$$</p>
+
+<h4 id="bundle-adjustment">Bundle Adjustment</h4>
+
+<p>对上面的 Cost 函数进行优化叫做 Bundle Adjustment， 取自对通过一个点的一捆光线进行调整之意，一个很 intuitive 的名字。</p>
+
+<p>Bundle Adjustment 一般采用 Levenberg‐Marquardt 进行优化，它是 Gauss‐Newton 的改进版。</p>
+
+<h5 id="gauss-newton">Gauss‐Newton</h5>
+
+<p>Gauss‐Newton 可以解决任意的非线性优化问题，工作过程如下：</p>
+
+<ol>
+<li>对待优化函数取一阶近似：</li>
+</ol>
+
+<p>$$
+f(P_i+\Delta)\approx f(P_i)+J\Delta
+$$</p>
+
+<ol>
+<li>最小化该一阶近似：</li>
+</ol>
+
+<p>$$
+\Delta=\mathop{\arg\min}\ \ | f(P_i)+J\Delta|^2
+$$</p>
+
+<ol>
+<li>迭代升级直到收敛：</li>
+</ol>
+
+<p>$$
+P_{i+1}=P_i+\Delta
+$$</p>
+
+<h5 id="apply-gauss-newton-to-ba">Apply Gauss‐Newton to BA</h5>
+
+<p>将（1）式改写为：
+$$
+f(P)=g(X,R,T)=\sum<em>{i,j}e</em>{ij}^2(X,R,T)
+$$
+线性近似得：
+$$
+f(P<em>0)=\sum</em>{ij}(e_{ij}(P<em>0)+J</em>{ij}\Delta)^2\approx c+2b^T\Delta+\Delta^TH\Delta \tag{2}
+$$
+其中：
+$$
+b^T=\sum<em>{ij}e^T</em>{ij}J<em>{ij}\ , H=\sum</em>{ij}J<em>{ij}^TJ</em>{ij}
+$$
+最小化（2）式：
+$$
+H\Delta=-b \tag{3}
+$$
+迭代：
+$$
+P\leftarrow P+\Delta
+$$</p>
+
+<h5 id="levenberg-marquardt">Levenberg‐Marquardt</h5>
+
+<p>Gauss‐Newton 的优点是收敛速度很快，但是步长过大的话有可能不收敛，而梯度下降总是收敛的，但在梯度很小时收敛的很慢，Levenberg‐Marquardt 试图在这二者之间取得平衡。</p>
+
+<p>$H$ 的对角线上的元素为梯度，Levenberg‐Marquardt 将（3）式调整为：
+$$
+(H+\lambda I)\Delta=-b
+$$
+通过控制  $\lambda$ 的大小来决定迭代时主要是梯度下降或 Gauss‐Newton 在起作用，比较迭代前后 cost 的大小可以知道当前的   $\lambda$ 大小是否合适。</p>
+</div>
+        <div class="post_footer">
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="powered_by">
+    <a href="https://zeuk.me">Designed by Zeuk,</a>
+    <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+  </div>
+
+  <div class="footer_slogan">
+    <span></span>
+  </div>
+</footer>
+
+
+
+<script src="https://zkyue.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://zkyue.github.io/js/zozo.js"></script>
+<script src="https://zkyue.github.io/js/highlight.pack.js"></script>
+<link  href="https://zkyue.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://zkyue.github.io/js/fancybox.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+
+
+
+
+
+</body>
+</html>
