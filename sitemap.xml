@@ -26,6 +26,11 @@
   </url>
   
   <url>
+    <loc>https://zkyue.github.io/posts/sfm/</loc>
+    <lastmod>2019-07-07T14:26:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://zkyue.github.io/tags/</loc>
     <lastmod>2019-07-07T14:26:00+08:00</lastmod>
     <priority>0</priority>
@@ -85,11 +90,6 @@
   <url>
     <loc>https://zkyue.github.io/about/</loc>
     <lastmod>2019-03-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zkyue.github.io/posts/sfm/</loc>
-    <priority>0</priority>
   </url>
   
   <url>

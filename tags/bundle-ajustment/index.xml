@@ -17,6 +17,15 @@
       <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
       
       <guid>https://zkyue.github.io/posts/sfm/</guid>
+      <description>&amp;quot;Structure from Motion&amp;quot; Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。 Formulation Input: p_{ij}=(v_{ij},u_{ij}) 第 i 个对应点在第 j 张图片的位</description>
+    </item>
+    
+    <item>
+      <title>Structure from Motion</title>
+      <link>https://zkyue.github.io/posts/sfm/</link>
+      <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
+      
+      <guid>https://zkyue.github.io/posts/sfm/</guid>
       <description>Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。 Formulation Input: $p{ij}=(v{ij},u_{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置 Ou</description>
     </item>
     

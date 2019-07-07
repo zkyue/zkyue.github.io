@@ -17,6 +17,15 @@
       <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
       
       <guid>https://zkyue.github.io/posts/sfm/</guid>
+      <description>&amp;quot;Structure from Motion&amp;quot; Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。 Formulation Input: p_{ij}=(v_{ij},u_{ij}) 第 i 个对应点在第 j 张图片的位</description>
+    </item>
+    
+    <item>
+      <title>Structure from Motion</title>
+      <link>https://zkyue.github.io/posts/sfm/</link>
+      <pubDate>Sun, 07 Jul 2019 14:26:00 +0800</pubDate>
+      
+      <guid>https://zkyue.github.io/posts/sfm/</guid>
       <description>Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。 Formulation Input: $p{ij}=(v{ij},u_{ij})$ 第 $i$ 个对应点在第 $j$ 张图片的位置 Ou</description>
     </item>
     
@@ -57,28 +66,6 @@
 Hugo makes use of a variety of open source projects including:
  https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
 Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://zkyue.github.io/posts/sfm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://zkyue.github.io/posts/sfm/</guid>
-      <description>&amp;quot;Structure from Motion&amp;quot;  Structure‐from‐Motion 要解决的问题是从多张图片或者视频流中恢复物体的三维结构和相机位姿。可以通过构建相机模型然后对重投影误差进行优化来求解。
-Formulation Input: p_{ij}=(v_{ij},u_{ij}) 第 i 个对应点在第 j 张图片的位置
-Output：
- X_i, 对应点 p_i 的三维坐标 R_j, t_j, 第  j 个相机的旋转和平移  Cost：
-g(X,R,T)=\sum_{i=1}^m\sum_{j=1}^n\begin{Vmatrix} P(X_i,R_j,t_j)- \left[\begin{matrix} u_{i,j} \\ v_{i,j} \end{matrix}\right] \end{Vmatrix}	^2 \tag{1} Bundle Adjustment 对上面的 Cost 函数进行优化叫做 Bundle Adjustment， 取自对通过一个点的一捆光线进行调整之意，一个很 intuitive 的名字。
-Bundle Adjustment 一般采用 Levenberg‐Marquardt 进行优化，它是 Gauss‐Newton 的改进版。
-Gauss‐Newton Gauss‐Newton 可以解决任意的非线性优化问题，工作过程如下：
-对待优化函数取一阶近似：  f(P_i+\Delta)\approx f(P_i)+J\Delta 最小化该一阶近似：  \Delta=\mathop{\arg\min}\ \ \| f(P_i)+J\Delta\|^2 迭代升级直到收敛：  P_{i+1}=P_i+\Delta Apply Gauss‐Newton to BA 将（1）式改写为：
-f(P)=g(X,R,T)=\sum_{i,j}e_{ij}^2(X,R,T) 线性近似得：
-f(P_0)=\sum_{ij}(e_{ij}(P_0)+J_{ij}\Delta)^2\approx c+2b^T\Delta+\Delta^TH\Delta \tag{2} 其中：
-b^T=\sum_{ij}e^T_{ij}J_{ij}\ , H=\sum_{ij}J_{ij}^TJ_{ij} 最小化（2）式：
-H\Delta=-b \tag{3} 迭代：
-P\leftarrow P+\Delta Levenberg‐Marquardt  Gauss‐Newton 的优点是收敛速度很快，但是步长过大的话有可能不收敛，而梯度下降总是收敛的，但在梯度很小时收敛的很慢，Levenberg‐Marquardt 试图在这二者之间取得平衡。
-H 的对角线上的元素为梯度，Levenberg‐Marquardt 将（3）式调整为：</description>
     </item>
     
   </channel>
