@@ -88,6 +88,11 @@
   </url>
   
   <url>
+    <loc>https://zkyue.github.io/posts/%E5%80%AA/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://zkyue.github.io/raw/sfm/</loc>
     <priority>0</priority>
   </url>
